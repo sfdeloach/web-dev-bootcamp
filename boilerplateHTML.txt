@@ -1,11 +1,12 @@
 <!doctype html>
 
 <!--
-      Author:     Steven DeLoach (sfdeloach@gmail.com)
-      Date:       <insert date here>
-      Course:     Udemy - The Web Developer Bootcamp
-      Instructor: Colt Steele
-      Title:      <insert title here>
+      Author:      Steven DeLoach (sfdeloach@gmail.com)
+      Date:        <insert date here>
+      Course:      Udemy - The Web Developer Bootcamp
+      Instructor:  Colt Steele
+      Title:       <insert title here>
+      Description: <insert description here>
 -->
 
 <html lang="en">
