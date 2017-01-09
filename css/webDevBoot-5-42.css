@@ -1,0 +1,55 @@
+/*  star (selects everything) */
+
+* {
+    border: 1px dotted grey;
+}
+
+
+/*  ID selector */
+
+#special {
+    background-color: yellow;
+}
+
+
+/*  class selector */
+
+.completed {
+    text-decoration: line-through;
+}
+
+
+/*  element selector */
+
+li {
+    border: 2px solid rgba(60, 120, 200, 0.5);
+}
+
+
+/*  descendent selector */
+
+ol li {
+    background-color: springgreen;
+}
+
+
+/*  adjacent selector */
+
+h2 + ul {
+    text-decoration: underline;
+    color: darkorange;
+}
+
+
+/*  attribute selector */
+
+input[type="checkbox"] {
+    transform: scale(1.25);
+}
+
+
+/*  n-th selector */
+
+li:nth-of-type(2) {
+    font-style: italic;
+}
