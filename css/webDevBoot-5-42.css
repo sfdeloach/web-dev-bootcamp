@@ -1,3 +1,16 @@
+body {
+    font-family: sans-serif;
+}
+
+h2 {
+    font-family: cursive;
+}
+
+ol {
+    font-family: monospace;
+    font-size: 125%;
+}
+
 /*  star (selects everything) */
 
 * {
@@ -48,7 +61,11 @@ input[type="checkbox"] {
 }
 
 
-/*  n-th selector */
+/*  nth selector 
+ *
+ *  specifying a number (as we do in this case) will only affect the nth element,
+ *  however, specifying 'odd' or 'even' will affect more than just the nth element.
+ */
 
 li:nth-of-type(2) {
     font-style: italic;
