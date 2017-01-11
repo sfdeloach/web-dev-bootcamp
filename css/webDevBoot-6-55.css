@@ -1,0 +1,20 @@
+* {
+    background-color: lightslategrey;
+}
+
+h1 {
+    color: lightgrey;
+    font-family: 'Unica One', cursive;
+    text-transform: uppercase;
+    border-bottom: 2px solid lightgrey;
+    margin-left: 1.66%;
+    width: 30%;
+    padding-bottom: 1.66%;
+}
+
+img {
+    width: 30%;
+    float: left;
+    margin: 1.66%;
+    border-radius: 25px 0px 25px 0px;
+}
