@@ -1,0 +1,40 @@
+body {
+    background: url("../img/pap-background.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    font-family: 'Slabo 27px', serif;
+}
+
+hr {
+    border: 0;
+    height: 1px;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+    width: 50vw;
+}
+
+.my-main-display {
+    text-align: center;
+}
+
+.my-main-display h1 {
+    padding-top: 30vh;
+    font-size: 6vw;
+    letter-spacing: 0.25em;
+    color: #222;
+    text-shadow: 1px 2px #BBB;
+}
+
+.my-main-display h3 {
+    text-transform: capitalize;
+    font-size: 3vw;
+    color: #222;
+}
+
+.btn-success {
+    color: #222;
+}
+
+.footer .navbar li a {
+    font-size: 75%;
+}
