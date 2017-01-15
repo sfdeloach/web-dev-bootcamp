@@ -1,0 +1,79 @@
+<!doctype html>
+
+<!--
+      Author:      Steven DeLoach (sfdeloach@gmail.com)
+      Date:        January 14, 2017
+      Course:      Udemy - The Web Developer Bootcamp
+      Instructor:  Colt Steele
+      Title:       Conditional w/ JavaScript
+      Description: Some crazy algo for entering a bar plus more?
+-->
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Steven DeLoach (sfdeloach@gmail.com)">
+
+    <meta name="description" content="Some crazy algo for entering a bar plus more?">
+    <meta name="keywords" content="HTML,CSS,JavaScript">
+
+    <title>JavaScript Bouncer</title>
+
+    <!-- STYLE SHEETS - NO CSS FOR THIS EXERCISE
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/webDevBoot-7-74.css">
+    -->
+    <style>
+        .my-code {
+            white-space: pre;
+            background-color: lightgrey;
+        }
+        
+        .comments {
+            color: green;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>JavaScript Bouncer</h1>
+    <p>Hint: look at this browser's console to see this code in action</p>
+    <div class="my-code">
+        <code>
+    'use strict';
+
+    <span class="comments">// Prompt user for input, convert to integer</span>
+    var age = Number.parseInt(window.prompt("Enter your age"));
+
+    <span class="comments">// If age is negative print an error message</span>
+    if (age &lt; 0) {
+        console.log("Error! Age cannot be less than zero");
+    }
+
+    <span class="comments">// If age is 21 print "happy 21st birthday"</span>
+    if (age === 21) {
+        console.log("Happy 21st birthday!");
+    }
+
+    <span class="comments">// If age is odd print "your age is odd"</span>
+    if ((age % 2) > 0) {
+        console.log("Your age is odd!");
+    }
+
+    <span class="comments">// SUPER BONUS: if age is a perfect square print "perfect square"</span>
+    if (Math.pow((Math.floor(Math.sqrt(age))), 2) === age) {
+        console.log("Perfect square!");
+    }
+        </code>
+    </div>
+    <!-- SCRIPTS - NO jQuery OR Bootstrap SCRIPTS FOR THIS EXERCISE
+    <script src="js/jquery-3.1.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    -->
+    <script src="js/webDevBoot-9-90.js"></script>
+</body>
+
+</html>

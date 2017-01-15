@@ -1,0 +1,20 @@
+'use strict';
+
+var userInput = window.prompt("Enter your date of birth", "4/12/76");
+var userDOB = new Date(userInput);
+console.log("Using " + userDOB + " for calculation");
+var currentDate = new Date();
+console.log("It is currently " + currentDate);
+var delta = currentDate.getTime() - userDOB.getTime();
+console.log("You have been alive approximately:");
+console.log("  " + delta + " milliseconds");
+delta = delta / 1000;
+console.log("  " + delta + " seconds");
+delta = delta / 60;
+console.log("  " + delta + " minutes");
+delta = delta / 60;
+console.log("  " + delta + " hours");
+delta = delta / 24;
+console.log("  " + delta + " days");
+delta = delta / 365.25;
+console.log("  " + delta + " years");

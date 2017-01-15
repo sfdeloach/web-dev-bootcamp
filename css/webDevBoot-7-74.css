@@ -13,6 +13,19 @@ hr {
     width: 50vw;
 }
 
+.navbar-inverse {
+    background-color: #262228;
+    border-color: #a7ba61;
+}
+
+.navbar-fixed-top {
+    border-width: 3px 0 1px;
+}
+
+.navbar-fixed-bottom {
+    border-width: 1px 0 0;
+}
+
 .my-main-display {
     text-align: center;
 }
@@ -21,14 +34,15 @@ hr {
     padding-top: 30vh;
     font-size: 6vw;
     letter-spacing: 0.25em;
-    color: #222;
-    text-shadow: 1px 2px #BBB;
+    color: #262228;
+    text-shadow: 2px 4px 3px rgba(200, 200, 200, 0.3);
 }
 
 .my-main-display h3 {
     text-transform: capitalize;
     font-size: 3vw;
-    color: #222;
+    color: #f6f6f6;
+    text-shadow: 2px 4px 3px rgba(38, 34, 40, 0.5);
 }
 
 .btn-success {
