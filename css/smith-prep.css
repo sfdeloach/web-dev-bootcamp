@@ -1,0 +1,178 @@
+.main-navigation a,
+.main-navigation a:visited,
+.main-navigation a:hover,
+.main-navigation a:focus,
+.social-navigation a,
+.social-navigation a:visited,
+.social-navigation a:hover,
+.social-navigation a:focus {
+    color: #fff
+}
+
+table,
+th,
+td,
+.comment .comment-metadata span.comment-author {
+    border-color: #000
+}
+
+table,
+th,
+td,
+.comment .comment-metadata span.comment-author {
+    border-color: rgba(0, 0, 0, .25)
+}
+
+hr.short {
+    background-color: #000
+}
+
+hr.short {
+    background-color: rgba(0, 0, 0, .25)
+}
+
+#comments input[type="submit"],
+#promo a,
+.block-two a.blue,
+.contact-form input[type="submit"],
+.entry-content a.button,
+.site-footer a.button,
+.site-footer.custom #promo a,
+.widget_blog_subscription input[type="submit"],
+.widget_search .search-submit,
+a.blue {
+    color: #878787
+}
+
+input[type="email"],
+input[type="email"]:focus,
+input[type="password"],
+input[type="password"]:focus,
+input[type="reset"],
+input[type="search"],
+input[type="search"]:focus,
+input[type="text"],
+input[type="text"]:focus,
+input[type="url"],
+input[type="url"]:focus,
+mark,
+textarea,
+textarea:focus,
+.no-featured-image,
+.block-two .news,
+.blog .entry-meta a:hover,
+.single .entry-meta a:hover,
+.search .entry-meta a:hover,
+.archive .entry-meta a:hover {
+    color: #000
+}
+
+body,
+button,
+input,
+select,
+textarea {
+    color: #2b2b2b
+}
+
+#secondary .widget,
+#secondary .widget-title,
+.author-info,
+.site-main .comment-navigation,
+.site-main .posts-navigation,
+.site-main .post-navigation,
+.sticky,
+div#infinite-handle {
+    border-color: #f6f6f6
+}
+
+#secondary .widget,
+#secondary .widget-title,
+.author-info,
+.site-main .comment-navigation,
+.site-main .posts-navigation,
+.site-main .post-navigation,
+.sticky,
+div#infinite-handle {
+    border-color: rgba(246, 246, 246, .25)
+}
+
+.blog .entry-meta a,
+.search .entry-meta a,
+.archive .entry-meta a {
+    color: #6d6d6d
+}
+
+.blog .entry-meta a,
+.search .entry-meta a,
+.archive .entry-meta a,
+.customwidget .entry-meta {
+    border-color: #777
+}
+
+.blog .entry-meta a,
+.search .entry-meta a,
+.archive .entry-meta a,
+.customwidget .entry-meta {
+    border-color: rgba(119, 119, 119, .25)
+}
+
+body,
+.widget_archive a,
+.widget_categories a,
+.widget .post-count {
+    background-color: #fcfcfc
+}
+
+#comments input[type="submit"],
+#promo a,
+.block-two a.blue,
+.contact-form input[type="submit"],
+.entry-content a.button,
+.main-navigation li.blue a,
+.site-footer a.button,
+.site-footer.custom #promo a,
+.widget_blog_subscription input[type="submit"],
+.widget_search .search-submit,
+a.blue {
+    background-color: #221310
+}
+
+.blog .author:before,
+.blog .cat-links:before,
+.blog .comments-link:before,
+.blog .edit-link:before,
+.blog .entry-format:before,
+.blog .posted-on:before,
+.blog .tags-links:before,
+span.blue {
+    color: #221310
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.section.pages.without-featured-image h1,
+#secondary .widget-title,
+.block-two .news h2.entry-title,
+.block-two .no-featured-image h2.entry-title {
+    color: #596d81
+}
+
+a,
+a:active,
+a:focus,
+a:hover,
+a:visited,
+#promo a,
+.archive .entry-meta a:hover,
+.block-one .no-featured-image .entry-content a,
+.block-two .news .entry-content a,
+.blog .entry-meta a:hover,
+.search .entry-meta a:hover,
+#main #infinite-handle span {
+    color: #b31f1d
+}

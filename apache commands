@@ -1,0 +1,58 @@
+APACHE QUICK REFERENCE
+----------------------
+
+Start:
+  sudo /etc/init.d/apache2 start
+
+Stop:
+  sudo /etc/init.d/apache2 stop
+
+Restart:
+  sudo /etc/init.d/apache2 restart
+
+----------------------
+
+To change the root directory:
+  STEP 0
+  Stop Apache (commands listed above) 
+  
+  STEP 1
+  Edit 000-default.conf using the following command--
+    "sudo gedit /etc/apache2/sites-enabled/000-default.conf"
+  Change DocumentRoot /var/www/html to your new path (do not use the forward slash at the end of the path)
+  
+  STEP 2
+  Edit default-ssl.conf using the following command--
+    "sudo gedit /etc/apache2/sites-available/default-ssl.conf"
+  Change DocumentRoot /var/www/html to your new path (do not use the forward slash at the end of the path)
+
+  STEP 3
+  Test the syntax by executing the following --
+    "sudo apachectl configtest"
+  Look for a message "Syntax OK"
+  
+  STEP 4
+  Ensure your new root has a security model in the file 'apache2.conf'
+    "sudo gedit /etc/apache2/apache2.conf"
+  For example:
+  1 |  <Directory /home/steven/workspace/Udemy/webdevbootcamp/>
+  2 |    Options Indexes FollowSymLinks
+  3 |	 AllowOverride None
+  4 |	 Require all granted
+  5 |  </Directory>
+  
+  STEP 5
+  Make sure the permission for all folders leading to your root have permission:
+    drwxr-xr-x (use chmod 755 for folders)
+    -rw-r--r-- (use chmod 644 for files)
+  
+  STEP 6
+  Restart Apache (commands listed above)
+  
+----------------------
+
+Current root directory:
+  /home/steven/workspace/Udemy/webdevbootcamp
+  
+Default (original) root directory:
+  /var/www/html
