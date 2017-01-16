@@ -1,0 +1,144 @@
+<!doctype html>
+
+<!--
+      Author:      Steven DeLoach (sfdeloach@gmail.com)
+      Date:        January 16, 2017
+      Course:      Udemy - The Web Developer Bootcamp
+      Instructor:  Colt Steele
+      Title:       While Loop Problem Set
+      Description: Four exercices on while loops
+-->
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Steven DeLoach (sfdeloach@gmail.com)">
+
+    <meta name="description" content="Four exercices on while loops">
+    <meta name="keywords" content="HTML,CSS,JavaScript">
+
+    <title>While loops</title>
+
+
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
+    <!-- STYLE SHEETS - Style sheet defined in the head, no font awesome
+    <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/webDevBoot-7-74.css">
+    -->
+    <style>
+        .jumbotron {
+            margin-bottom: 0;
+            margin: 30px;
+        }
+        
+        .myCode {
+            white-space: pre;
+            background-color: #f9f2f4;
+            margin: 15px 15px 15px 15px;
+            color: darkolivegreen;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-4">
+                <div class="jumbotron">
+                    <h1 class="my-content">While Loops Problem Set</h1>
+                </div>
+            </div>
+            <div class="col-sm-8 my-content">
+                <div class="jumbotron">
+                    <ol>
+                        <li>Print all numbers between -10 and 19</li>
+                        <li>Print all even numbers between 10 and 40</li>
+                        <li>Print all odd numbers between 300 and 333</li>
+                        <li>Print all numbers divisible by 5 AND 3 between 5 and 50</li>
+                    </ol>
+                </div>
+                <p>Answers should print to this page's console...view by pressing F12</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-4 myCode">
+                <p>Javascript Code:</p>
+                <code>
+"use strict";
+
+console.log("webDevBoot-9-96.js");
+
+var i;
+var answerSet = [];
+
+console.log("\nProblem 1:");
+i = -10;
+while (i &lt; 20) {
+    answerSet.push(i);
+    i += 1;
+}
+console.log(...answerSet);
+
+answerSet = [];
+
+console.log("\nProblem 2:");
+i = 10;
+while (i &lt;= 40) {
+    answerSet.push(i);
+    i += 2;
+}
+console.log(...answerSet);
+
+answerSet = [];
+
+console.log("\nProblem 3:");
+i = 300;
+while (i &lt;= 333) {
+    if (i % 2 === 0) {
+        answerSet.push(i);
+    }
+    i += 1;
+}
+console.log(...answerSet);
+
+answerSet = [];
+
+console.log("\nProblem 4:");
+i = 5;
+while (i &lt;= 50) {
+    if (i % 5 === 0 &amp;&amp; i % 3 === 0) {
+        answerSet.push(i);
+    }
+    i += 1;
+}
+console.log(...answerSet);</code>
+            </div>
+            <div class="col-sm-7 myCode">
+                <p>Output:</p>
+                <code>
+webDevBoot-9-96.js
+
+Problem 1:  webDevBoot-9-96.js:8:1
+-10 -9 -8 -7 -6 -5 -4 -3 -2 -1 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19
+
+Problem 2:
+10 12 14 16 18 20 22 24 26 28 30 32 34 36 38 40
+
+Problem 3:
+300 302 304 306 308 310 312 314 316 318 320 322 324 326 328 330 332
+
+Problem 4:
+15 30 45</code>
+            </div>
+        </div>
+    </div>
+    <!-- SCRIPTS - NO jQuery OR Bootstrap SCRIPTS FOR THIS EXERCISE
+    <script src="js/jquery-3.1.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    -->
+    <script src="js/webDevBoot-9-96.js"></script>
+</body>
+
+</html>
