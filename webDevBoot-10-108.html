@@ -1,0 +1,120 @@
+<!doctype html>
+
+<!--
+      Author:      Steven DeLoach (sfdeloach@gmail.com)
+      Date:        January 16, 2017
+      Course:      Udemy - The Web Developer Bootcamp
+      Instructor:  Colt Steele
+      Title:       Function Exercises
+      Description: Three exercises on creating your own functions
+-->
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Steven DeLoach (sfdeloach@gmail.com)">
+
+    <meta name="description" content="Three exercises on creating your own functions">
+    <meta name="keywords" content="HTML,CSS,JavaScript">
+
+    <title>Function Exercises</title>
+
+
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
+    <!-- STYLE SHEETS - Style sheet defined in the head, no font awesome
+    <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/webDevBoot-7-74.css">
+    -->
+    <style>
+        .jumbotron {
+            margin-bottom: 0;
+            margin: 30px;
+        }
+        
+        .myCode {
+            white-space: pre;
+            background-color: #f9f2f4;
+            margin: 15px 15px 15px 15px;
+            color: darkolivegreen;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-8">
+                <div class="jumbotron">
+                    <h1 class="my-content">Function Exercise</h1>
+                </div>
+            </div>
+            <div class="col-sm-4 my-content">
+                <div class="jumbotron">
+                    <ol>
+                        <li>isEven()</li>
+                        <li>factorial()</li>
+                        <li>kebabToSnake()</li>
+                    </ol>
+                </div>
+                <p>Answers should print to this page's console...view by pressing F12</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-4 myCode">
+                <p>Javascript Code:</p>
+                <code>
+"use strict";
+
+console.log("webDevBoot-10-108.js");
+
+// isEven()
+function isEven(x) {
+    return x % 2 === 0;
+}
+
+// factorial()
+function factorial(x) {
+    if (x === 0) {
+        return 1;
+    } else {
+        return x * factorial(x - 1);
+    }
+}
+
+// kebabToSnake()
+function kebabToSnake(str) {
+    return str.replace("-", "_");
+}
+</code>
+            </div>
+            <div class="col-sm-7 myCode">
+                <p>Output:</p>
+                <code>
+webDevBoot-10-108.js
+isEven(10) = true
+isEven(101) = false
+isEven(Infinity) = false
+isEven(NaN) = false
+isEven(undefined) = false
+factorial(0) = 1
+factorial(1) = 1
+factorial(2) = 2
+factorial(6) = 720
+factorial(10) = 3628800
+kebabToSnake('camelCase') = camelCase
+kebabToSnake('kebab-case') = kebab_case
+kebabToSnake('snake_case') = snake_case
+</code>
+            </div>
+        </div>
+    </div>
+    <!-- SCRIPTS - NO jQuery OR Bootstrap SCRIPTS FOR THIS EXERCISE
+    <script src="js/jquery-3.1.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    -->
+    <script src="js/webDevBoot-10-108.js"></script>
+</body>
+
+</html>
