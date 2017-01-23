@@ -1,0 +1,14 @@
+142. Introduction to Events
+
+    - Events are everywhere (click, mouseover, drag, drop, keypress)
+    - Select an element, then add event listener
+    - element.addEventListener(type, function)
+    - You can have more than one listener on an element
+    - An example of a for loop was used to assign a change color function
+      to three <li> elements.  Instead of refering to the element in the
+      iterative sense (ie. list[i]), the keywork 'this' was used instead,
+      see webDevBoot-14-142.html for an example
+
+143. Toggle Exercise
+
+144. 
