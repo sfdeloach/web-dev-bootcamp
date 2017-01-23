@@ -1,0 +1,122 @@
+<!doctype html>
+
+<!--
+      Author:      Steven DeLoach (sfdeloach@gmail.com)
+      Date:        January 21, 2017
+      Course:      Udemy - The Web Developer Bootcamp
+      Instructor:  Colt Steele
+      Title:       movieDB
+      Description: Create an array of movie objects
+-->
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Steven DeLoach (sfdeloach@gmail.com)">
+
+    <meta name="description" content="Create an array of movie objects">
+    <meta name="keywords" content="HTML,CSS,JavaScript">
+
+    <title>movieDB</title>
+
+
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
+    <!-- STYLE SHEETS - Style sheet defined in the head, no font awesome
+    <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/webDevBoot-7-74.css">
+    -->
+    <style>
+        .jumbotron {
+            margin-bottom: 0;
+            margin: 30px;
+            background-color: #f9f2f4;
+        }
+        
+        .myCode {
+            white-space: pre;
+            background-color: #f9f2f4;
+            margin: 15px 15px 15px 15px;
+            color: darkolivegreen;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-8">
+                <div class="jumbotron">
+                    <h1 class="my-content">movieDB</h1>
+                </div>
+            </div>
+            <div class="col-sm-4 my-content">
+                <div class="jumbotron">
+                    <h3>Create an array of movie objects. Each movie should have a title, rating, and hasWatched properties. Iterate through the array and print out something that looks like:</h3>
+                    <code class="myCode">
+    You have watched "In Bruges" - 5 stars
+    You have not seen "Frozen" - 4.5 stars
+    You have seen "Mad Max Fury Road" - 5 stars
+    You have not seen "Les Miserables" - 3.5 stars
+                    </code>
+                </div>
+                <p>Answers should print to this page's console...view by pressing F12</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-4 myCode">
+                <p>Javascript Code:</p>
+                <code class="myCode">
+var movies = [
+    {
+        title: "Secret Lives of Pets",
+        rating: 4,
+        hasWatched: false
+    }, {
+        title: "Sing",
+        rating: 3.5,
+        hasWatched: true
+    }, {
+        title: "Moana",
+        rating: 4.5,
+        hasWatched: true
+    }, {
+        title: "Angry Birds",
+        rating: 1,
+        hasWatched: false
+    }, {
+        title: "Paddington Bear",
+        rating: 4.5,
+        hasWatched: true
+    }
+];
+
+movies.forEach(function (item, index, array) {
+    var watch = item.hasWatched ? "You have watched" : "You have not seen",
+        title = " \"" + item.title + "\" - ",
+        rating = item.rating &lt;= 1 ? item.rating + " star" : item.rating + " stars";
+    console.log(watch + title + rating);
+});
+                </code>
+            </div>
+            <div class="col-sm-7 myCode">
+                <p>Output:</p>
+                <code class="myCode">
+You have not seen "Secret Lives of Pets" - 4 stars
+You have watched "Sing" - 3.5 stars
+You have watched "Moana" - 4.5 stars
+You have not seen "Angry Birds" - 1 star
+You have watched "Paddington Bear" - 4.5 stars
+                </code>
+            </div>
+        </div>
+    </div>
+    <!-- SCRIPTS - NO jQuery OR Bootstrap SCRIPTS FOR THIS EXERCISE
+    <script src="js/jquery-3.1.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    -->
+    <script src="js/webDevBoot-12-128.js"></script>
+</body>
+
+</html>
