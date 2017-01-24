@@ -2,11 +2,12 @@
 //console.log("linked to webDevBoot-14-143.html");
 //console.log("created by sfdeloach on 01/23/2017");
 
+// Object Constructor
 function RgbColor(r, g, b) {
     'use strict';
-    this.r = (typeof r === 'undefined') ? this.r = 255 : this.r = r;
-    this.g = (typeof g === 'undefined') ? this.g = 255 : this.g = g;
-    this.b = (typeof b === 'undefined') ? this.b = 255 : this.b = b;
+    this.r = (0 <= r && r <= 255) ? this.r = r : this.r = 255;
+    this.g = (0 <= g && g <= 255) ? this.g = g : this.g = 255;
+    this.b = (0 <= b && b <= 255) ? this.b = b : this.b = 255;
     this.randomize = function () {
         this.r = this.rn();
         this.g = this.rn();
@@ -25,18 +26,23 @@ function RgbColor(r, g, b) {
     this.rn = function () {
         return Math.round(Math.random() * 255);
     };
+    this.deepCopy = function (rgb) {
+        if (rgb instanceof RgbColor) {
+            this.r = rgb.r;
+            this.g = rgb.g;
+            this.b = rgb.b;
+        }
+    };
 }
 
-var button = document.querySelector('button');
-var body = document.querySelector('body');
-var oldColor = new RgbColor();
-var newColor = new RgbColor(0, 0, 0);
+var button = document.querySelector('button'),
+    body = document.querySelector('body'),
+    oldColor = new RgbColor(),
+    newColor = new RgbColor();
 
 button.addEventListener("click", function () {
     "use strict";
-    oldColor.r = newColor.r;
-    oldColor.g = newColor.g;
-    oldColor.b = newColor.b;
+    oldColor.deepCopy(newColor);
     newColor.randomize();
     body.style.backgroundColor = newColor.toString();
 });
