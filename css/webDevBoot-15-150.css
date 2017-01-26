@@ -1,0 +1,23 @@
+.title {
+    color: linen;
+    background-color: darkslateblue;
+}
+
+.title h1 {
+    font-size: 400%;
+}
+
+.title h3 {
+    font-size: 200%;
+}
+
+.menu {
+    color: darkslateblue;
+    background-color: linen;
+    font-size: 150%;
+}
+
+.menu .select {
+    color: linen;
+    background-color: darkslateblue;
+}

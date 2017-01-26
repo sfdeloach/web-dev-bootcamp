@@ -12,3 +12,15 @@
 143. Toggle Exercise
 
 144. 
+
+145.
+
+146. Other Types of Events
+
+    - element.addEventListener(click, fn())
+    - element.addEventListener(mouseover, fn())
+    - element.addEventListener(mouseout, fn())
+    - this.classList.add("class-name")
+    - this.classList.remove("class-name")
+    - this.classList.toggle("class-name")
+    

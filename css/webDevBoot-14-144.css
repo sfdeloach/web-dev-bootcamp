@@ -1,5 +1,5 @@
 table {
-    margin-top: 100px;
+    margin-top: 25px;
 }
 
 th,
@@ -8,9 +8,17 @@ td {
     font-size: 200%;
 }
 
-.home-score,
-.away-score {
-    font-size: 400%;
-    background-color: #989;
+.table>tbody>tr>td.home-score,
+.table>tbody>tr>td.away-score {
+    font-size: 800%;
+    background-color: #EEE;
     color: white;
+    border: 1px solid #CCC;
+}
+
+.btn-primary {
+    margin-top: 10px;
+    color: #337ab7;
+    background-color: #fff;
+    border-color: #2e6da4;
 }

@@ -9,36 +9,68 @@ var homeScore = document.querySelector(".home-score"),
     awayPlus = document.querySelector(".away-plus"),
     awayMinus = document.querySelector(".away-minus"),
     winScore = document.querySelector("input"),
-    reset = document.querySelector(".btn-danger");
+    reset = document.querySelector(".reset"),
+    isEnabled = true;
 
-homePlus.addEventListener("click", function () {
+function homePlusFn() {
     'use strict';
     homeScore.innerHTML = parseInt(homeScore.innerHTML, 10) + 1;
-    if (winScore.value === homeScore.innerHTML) {
-        console.log("winner");
+    if (parseInt(winScore.value, 10) <= parseInt(homeScore.innerHTML, 10)) {
+        homeScore.style.backgroundColor = 'limegreen';
+        disableBoard();
     }
-});
+}
 
-homeMinus.addEventListener("click", function () {
+function homeMinusFn() {
     'use strict';
-    homeScore.innerHTML = parseInt(homeScore.innerHTML, 10) - 1;
-});
+    if (parseInt(homeScore.innerHTML, 10) > 0) {
+        homeScore.innerHTML = parseInt(homeScore.innerHTML, 10) - 1;
+    }
+}
 
-awayPlus.addEventListener("click", function () {
+function awayPlusFn() {
     'use strict';
     awayScore.innerHTML = parseInt(awayScore.innerHTML, 10) + 1;
-    if (winScore.value === awayScore.innerHTML) {
-        console.log("winner");
+    if (parseInt(winScore.value, 10) <= parseInt(awayScore.innerHTML, 10)) {
+        awayScore.style.backgroundColor = 'limegreen';
+        disableBoard();
     }
-});
+}
 
-awayMinus.addEventListener("click", function () {
+function awayMinusFn() {
     'use strict';
-    awayScore.innerHTML = parseInt(awayScore.innerHTML, 10) - 1;
-});
+    if (parseInt(awayScore.innerHTML, 10) > 0) {
+        awayScore.innerHTML = parseInt(awayScore.innerHTML, 10) - 1;
+    }
+}
+
+function disableBoard() {
+    'use strict';
+    homePlus.removeEventListener("click", homePlusFn);
+    homeMinus.removeEventListener("click", homeMinusFn);
+    awayPlus.removeEventListener("click", awayPlusFn);
+    awayMinus.removeEventListener("click", awayMinusFn);
+    isEnabled = false;
+}
+
+function enableBoard() {
+    'use strict';
+    homePlus.addEventListener("click", homePlusFn);
+    homeMinus.addEventListener("click", homeMinusFn);
+    awayPlus.addEventListener("click", awayPlusFn);
+    awayMinus.addEventListener("click", awayMinusFn);
+}
 
 reset.addEventListener("click", function () {
     'use strict';
     homeScore.innerHTML = "0";
     awayScore.innerHTML = "0";
+    homeScore.style.backgroundColor = '#DDD';
+    awayScore.style.backgroundColor = '#DDD';
+    if (!isEnabled) {
+        enableBoard();
+        isEnabled = true;
+    }
 });
+
+enableBoard();
