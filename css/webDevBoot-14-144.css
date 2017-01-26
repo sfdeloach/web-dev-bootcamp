@@ -1,0 +1,16 @@
+table {
+    margin-top: 100px;
+}
+
+th,
+td {
+    text-align: center;
+    font-size: 200%;
+}
+
+.home-score,
+.away-score {
+    font-size: 400%;
+    background-color: #989;
+    color: white;
+}
