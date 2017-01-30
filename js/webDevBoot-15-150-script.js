@@ -32,7 +32,7 @@ var rgbTitle = document.querySelector("#rgb-title"),
     newColors = document.querySelector("#new-colors"),
     easy = document.querySelector("#easy"),
     hard = document.querySelector("#hard"),
-    colorBoxes = document.querySelectorAll(".colorsquare"),
+    colorBoxes = document.querySelectorAll(".color-square"),
     gameOver = document.querySelectorAll(".game-over"),
     guessColorIndex, //assigned during generateColors()
     gameIsActive = true,
@@ -53,14 +53,15 @@ function resetGame() {
     //randomly select one color and print to rgbTitle
     guessColorIndex = Math.round(Math.random() * (numColors - 1));
     rgbTitle.innerHTML = colorBoxes[guessColorIndex].style.backgroundColor;
-    if (!gameIsActive) {
-        gameIsActive = true;
-        gameOver[0].innerHTML = "";
-        gameOver[1].innerHTML = "";
-    }
+    gameIsActive = true;
+    gameOver[0].innerHTML = "";
+    gameOver[1].innerHTML = "";
+    document.querySelector(".title").style.backgroundColor = "";
+    easy.style.backgroundColor = "";
+    hard.style.backgroundColor = "";
 }
 
-// Add listeners via one large anonymous function invocation
+// Initializing function: add listeners via one large anonymous function invocation
 (function () {
     'use strict';
     var i; //for iteration
@@ -87,9 +88,11 @@ function resetGame() {
         hard.classList.remove("select");
         numColors = 3;
         // hide last three squares
-        colorBoxes[3].hidden = true;
-        colorBoxes[4].hidden = true;
-        colorBoxes[5].hidden = true;
+        for (i = 3; i < 6; i += 1) {
+            colorBoxes[i].classList.remove("color-square");
+            colorBoxes[i].classList.add("hidden-square");
+            colorBoxes[i].innerHTML = "";
+        }
         resetGame();
     });
     hard.addEventListener("click", function () {
@@ -97,9 +100,10 @@ function resetGame() {
         easy.classList.remove("select");
         numColors = 6;
         // show last three squares
-        colorBoxes[3].hidden = false;
-        colorBoxes[4].hidden = false;
-        colorBoxes[5].hidden = false;
+        for (i = 3; i < 6; i += 1) {
+            colorBoxes[i].classList.remove("hidden-square");
+            colorBoxes[i].classList.add("color-square");
+        }
         resetGame();
     });
     newColors.addEventListener("click", function () {
@@ -112,8 +116,10 @@ function resetGame() {
                 if (this.style.backgroundColor === rgbTitle.innerHTML) {
                     this.innerHTML = '<i class="fa fa-check fa-3x" aria-hidden="true"></i>';
                     gameIsActive = false; //game over
-                    gameOver[0].innerHTML = "GAME OVER";
-                    gameOver[1].innerHTML = "GAME OVER";
+                    gameOver[0].innerHTML = '<i class="fa fa-star fa-spin fa-3x fa-fw"></i>';
+                    gameOver[1].innerHTML = '<i class="fa fa-star fa-spin fa-3x fa-fw"></i>';
+                    document.querySelector(".title").style.backgroundColor = this.style.backgroundColor;
+                    document.querySelector(".select").style.backgroundColor = this.style.backgroundColor;
                 } else {
                     this.innerHTML = '<i class="fa fa-times fa-3x" aria-hidden="true"></i>';
                 }

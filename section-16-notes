@@ -1,0 +1,38 @@
+162. Selecting with jQuery
+
+    - Select elements with $()
+      
+      This is very similar to document.querySelectorAll("selectorGoesHere")
+      
+    - Use $(selector).css() to style elements
+    
+      for example: $("h1").css("color", "yellow");
+      
+      you can also pass an object with styles
+      
+      var styles = {
+          backgroundColor: "orange",
+          fontWeight: "bold"
+      };
+      
+      $("#special").css(styles);
+      
+      Note: the properties in the styles object are camel case, not snake case
+            if $() returns a collection of elements, the .css() method will auto iterate over all elements
+            the style object could be defined inline the $().css expression:
+            
+            $("#special").css({
+                backgroundColor: "orange",
+                fontWeight: "bold"
+            });
+            
+164. Text and HTML
+
+    .text() - get or set the text content inside an element, includes children
+    .html() - get or set html contents of elements, similar to .innerHTML
+    
+165. Attr and Val
+
+    .attr() - get or set the value of an attribute
+    .val() -- extracts the value for an element    
+    
