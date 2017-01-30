@@ -1,23 +1,58 @@
+html {
+    height: 100%;
+}
+
+body {
+    height: 100%;
+    margin: 0;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background: linear-gradient(to bottom right, #222, #555);
+}
+
 .title {
     color: linen;
-    background-color: darkslateblue;
+    background-color: #363687;
 }
 
 .title h1 {
-    font-size: 400%;
+    /*font-size: 60px;*/
 }
 
 .title h3 {
-    font-size: 200%;
+    /*font-size: 30px;*/
 }
 
 .menu {
     color: darkslateblue;
     background-color: linen;
-    font-size: 150%;
+    /*font-size: 20px;*/
+    cursor: pointer;
 }
 
 .menu .select {
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-top: 10px;
+    padding-bottom: 9px;
+    border-radius: 0 0 10px 10px;
     color: linen;
-    background-color: darkslateblue;
+    background-color: #363687;
+}
+
+p {
+    background-color: linen;
+    color: #333;
+    border-radius: 10px;
+    margin-top: 20px;
+    margin-left: 60px;
+    margin-bottom: 20px;
+    margin-right: 60px;
+    padding: 6vw;
+    cursor: pointer;
+}
+
+.emphasize {
+    font-weight: bold;
+    letter-spacing: 2px;
 }
