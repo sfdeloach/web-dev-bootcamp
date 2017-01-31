@@ -1,0 +1,18 @@
+body {
+    background-color: #212121;
+}
+
+#container-one {
+    width: 60%;
+    margin: 0 auto;
+}
+
+.box {
+    background-color: dodgerblue;
+    width: 19%;
+    margin: 0.5%;
+    padding-top: 9.5%;
+    padding-bottom: 9.5%;
+    float: left;
+    border-radius: 10px;
+}

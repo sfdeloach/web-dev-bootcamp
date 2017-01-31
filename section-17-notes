@@ -1,0 +1,19 @@
+167. jQuery Events: Click
+
+    $("button").click(function () {
+        $(this).css("backgroundColor", "orange");
+    });
+    
+    Note: in jQuery, you must wrap the 'this' object in $(this)
+
+168. jQuery Events: Keypress
+
+    $("input").keypress(function (event) {
+        if (event.which === 13) {
+            console.log("The enter key was pressed");
+        }
+    });
+
+169. jQuery Events: On
+
+170. jQuery Effects

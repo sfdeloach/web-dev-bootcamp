@@ -34,5 +34,12 @@
 165. Attr and Val
 
     .attr() - get or set the value of an attribute
-    .val() -- extracts the value for an element    
+    .val() -- extracts the value for an element
+    
+166. Manipulating CSS Classes
+
+    .addClass()
+    .removeClass()
+    .toggleClass()
+    
     

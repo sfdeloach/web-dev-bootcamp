@@ -116,8 +116,8 @@ function resetGame() {
                 if (this.style.backgroundColor === rgbTitle.innerHTML) {
                     this.innerHTML = '<i class="fa fa-check fa-3x" aria-hidden="true"></i>';
                     gameIsActive = false; //game over
-                    gameOver[0].innerHTML = '<i class="fa fa-star fa-spin fa-3x fa-fw"></i>';
-                    gameOver[1].innerHTML = '<i class="fa fa-star fa-spin fa-3x fa-fw"></i>';
+                    gameOver[0].innerHTML = '<i class="fa fa-smile-o fa-spin fa-3x fa-fw"></i><i class="fa fa-star fa-spin fa-3x fa-fw"></i>';
+                    gameOver[1].innerHTML = '<i class="fa fa-star fa-spin fa-3x fa-fw"></i><i class="fa fa-smile-o fa-spin fa-3x fa-fw"></i>';
                     document.querySelector(".title").style.backgroundColor = this.style.backgroundColor;
                     document.querySelector(".select").style.backgroundColor = this.style.backgroundColor;
                 } else {
