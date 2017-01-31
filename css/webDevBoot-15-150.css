@@ -8,7 +8,7 @@ body {
     margin: 0;
     background-repeat: no-repeat;
     background-attachment: fixed;
-    background: linear-gradient(to bottom right, #222, #555);
+    background: linear-gradient(to bottom right, #222, #777);
 }
 
 .title {
@@ -16,18 +16,9 @@ body {
     background-color: #363687;
 }
 
-.title h1 {
-    /*font-size: 60px;*/
-}
-
-.title h3 {
-    /*font-size: 30px;*/
-}
-
 .menu {
     color: darkslateblue;
     background-color: linen;
-    /*font-size: 20px;*/
     cursor: pointer;
 }
 
@@ -41,19 +32,27 @@ body {
     background-color: #363687;
 }
 
-p {
-    background-color: linen;
-    color: #333;
+.color-square {
+    display: inline-block;
+    color: #111;
     border-radius: 10px;
     margin-top: 20px;
-    margin-left: 60px;
+    margin-left: 20px;
     margin-bottom: 20px;
-    margin-right: 60px;
-    padding: 6vw;
+    margin-right: 20px;
+    padding: 100px;
     cursor: pointer;
+}
+
+.hide-square {
+    display: none;
 }
 
 .emphasize {
     font-weight: bold;
-    letter-spacing: 2px;
+    letter-spacing: 1.5px;
+}
+
+.container {
+    width: 800px;
 }
