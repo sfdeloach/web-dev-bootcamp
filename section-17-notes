@@ -2,6 +2,10 @@
 
     $("button").click(function () {
         $(this).css("backgroundColor", "orange");
+        // do not use the following...
+        // $("button").css("backgroundColor", "orange");
+        // ...unless you want ALL BUTTONS to change to an orange
+        // background with the click on ONLY ONE button
     });
     
     Note: in jQuery, you must wrap the 'this' object in $(this)
@@ -13,7 +17,55 @@
             console.log("The enter key was pressed");
         }
     });
+    
+    Note: keypress() is commonly used with an event argument to
+          determine which key was pressed
 
 169. jQuery Events: On
 
+    "Used 99% of the time"
+    Similar to .addEventListner()
+    
+    $('#submit').on('click', function() {});
+    $('button').on('click', function() {});
+    $('a').on('dblclick', function() {});
+    $('.box').on('dragstart', function() {});
+    $('input[type="text"]').on('keypress', function() {});
+    
+    Event types: click, dblclick, mouseenter, mouseleave, keypress
+    
+    Note: Use CSS pseudo selectors for mouse hover effects instead of
+          JS or JQuery!
+          
+          click() only add listeners for existing elements
+          on('click', fn(){}) will add listeners for all future elements
+
 170. jQuery Effects
+
+    fades - all image elements fadeOut slowly when id='button' is clicked
+    
+    $('#button').click(function () {
+        $('image').fadeOut('slow', function() {
+            // code here runs when fadeOut is complete
+            // typically elements are removed from the DOM
+            $(this).remove();
+        });
+    });
+    
+    Typically, the fadeIn element has {display: none;} set in CSS
+    
+    $('#button').on('click', function() {
+        $('image').fadeIn(1000, function() {
+        });
+    });
+    
+    $('#button').on('click', function() {
+        $('image').fadeToggle(500);
+    });
+    
+    slides -  Down, Up, and Toggle (optional callback fns can be provided)
+    
+    $('#button').on('click', function() {
+        $('image').SlideDown(500);
+    });
+    

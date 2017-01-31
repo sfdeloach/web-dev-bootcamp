@@ -1,0 +1,64 @@
+body {
+    background: linear-gradient(to right, #18B8E2, #E6E8BC);
+    font-family: 'Ubuntu', sans-serif;
+}
+
+#main {
+    background-color: white;
+    margin: 100px auto;
+    width: 425px;
+}
+
+#main #title #todo,
+#main #title #plus {
+    background-color: steelblue;
+    color: white;
+    font-size: 150%;
+    width: 44%;
+    float: left;
+    padding: 3%;
+}
+
+#main #title #plus {
+    text-align: right;
+}
+
+input {
+    background-color: #EEE;
+    font-size: 125%;
+    width: 400px;
+    padding: 12.5px;
+    margin: 0;
+    border: none;
+}
+
+input[type=text]:focus {
+    outline: none;
+}
+
+#main .item {
+    /*keeps the trash div the same height as details*/
+    display: flex;
+    width: 425px;
+}
+
+#main .item .trash {
+    background-color: indianred;
+    color: linen;
+    text-align: center;
+    vertical-align: middle;
+    width: 21px;
+    padding: 13px;
+    float: left;
+}
+
+#main .item .details {
+    width: 352px;
+    padding: 13px;
+    float: left;
+    vertical-align: middle;
+}
+
+div.item:nth-child(even) {
+    background-color: #EEE;
+}

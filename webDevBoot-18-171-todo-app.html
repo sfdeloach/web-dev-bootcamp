@@ -1,0 +1,70 @@
+<!doctype html>
+
+<!--
+      Author:      Steven DeLoach (sfdeloach@gmail.com)
+      Date:        January 31, 2017
+      Course:      Udemy - The Web Developer Bootcamp
+      Instructor:  Colt Steele
+      Title:       Simple TODO App
+      Description: TODO App using jQuery, Font Awesome, and vanilla CSS?
+-->
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Steven DeLoach (sfdeloach@gmail.com)">
+
+    <meta name="description" content="TODO App using jQuery, Font Awesome, and vanilla CSS?">
+    <meta name="keywords" content="HTML,CSS,JavaScript,jQuery,Font Awesome">
+
+    <title>Simple TODO</title>
+
+    <!-- STYLE SHEETS -->
+    <!-- Bootstrap not used for this project
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
+    -->
+    <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/css/webDevBoot-18-171.css">
+</head>
+
+<body>
+    <div id="main">
+        <div id="title">
+            <div id="todo">TO-DO LIST</div>
+            <div id="plus"><i class="fa fa-plus-circle" aria-hidden="true"></i></div>
+        </div>
+        <div id="new-todo-field">
+            <input type="text" placeholder="Add New Todo...">
+        </div>
+        <!-- Add items here and below -->
+        <div class="item">
+            <div class="trash"><i class="fa fa-trash" aria-hidden="true"></i></div>
+            <div class="details">Take out the garbage</div>
+        </div>
+        <div class="item">
+            <div class="trash"><i class="fa fa-trash" aria-hidden="true"></i></div>
+            <div class="details">Feed the dogs</div>
+        </div>
+        <div class="item">
+            <div class="trash"><i class="fa fa-trash" aria-hidden="true"></i></div>
+            <div class="details">Pick up Lily from ballet class and do a bunch of super fun stuff!</div>
+        </div>
+        <div class="item">
+            <div class="trash"><i class="fa fa-trash" aria-hidden="true"></i></div>
+            <div class="details">Go to the Y!</div>
+        </div>
+    </div>
+
+    <!-- SCRIPTS -->
+    <!--
+    <script src="js/bootstrap.min.js"></script>
+    -->
+    <script src="js/jquery-3.1.1.min.js"></script>
+    <script src="js/jquery-ui.min.js"></script>
+    <script src="js/webDevBoot-18-171.js"></script>
+</body>
+
+</html>
