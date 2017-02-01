@@ -1,5 +1,5 @@
 body {
-    background: linear-gradient(to right, #18B8E2, #E6E8BC);
+    background: linear-gradient(to left, #003973, #E5E5BE);
     font-family: 'Ubuntu', sans-serif;
 }
 
@@ -7,33 +7,43 @@ body {
     background-color: white;
     margin: 100px auto;
     width: 425px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
 }
 
-#main #title #todo,
-#main #title #plus {
+#main #title #todo {
     background-color: steelblue;
-    color: white;
+    color: linen;
     font-size: 26px;
-    width: 186.5px;
+    width: 343px;
     float: left;
     padding: 13px;
 }
 
 #main #title #plus {
-    text-align: right;
+    background-color: #2E4268;
+    color: white;
+    font-size: 26px;
+    width: 30px;
+    float: left;
+    padding: 13px;
+    text-align: center;
+    cursor: pointer;
 }
 
-input {
+input[type=text] {
     background-color: #EEE;
     font-size: 20px;
-    width: 400px;
+    width: 425px;
     padding: 12.5px;
     margin: 0;
     border: none;
+    box-sizing: border-box;
 }
 
 input[type=text]:focus {
     outline: none;
+    background-color: white;
+    border: 1px solid steelblue;
 }
 
 #main .item {
@@ -42,15 +52,28 @@ input[type=text]:focus {
     width: 425px;
 }
 
-#main .item .trash {
-    display: none;
+.item .trash {
     background-color: indianred;
-    color: linen;
+    color: rgba(0, 0, 0, 0);
     text-align: center;
     vertical-align: middle;
+    width: 0;
+    float: left;
+    cursor: pointer;
+    transition-property: width;
+    transition-duration: 0.1s;
+}
+
+
+/* Original implementation used jQuery UI slide effect
+ * accomplish the same effect...Lesson learned! First
+ * explore if CSS has a solution!!!
+ */
+
+.item:hover .trash {
     width: 21px;
     padding: 13px;
-    float: left;
+    color: linen;
 }
 
 #main .item .details {
@@ -58,6 +81,7 @@ input[type=text]:focus {
     padding: 13px;
     float: left;
     vertical-align: middle;
+    cursor: pointer;
 }
 
 #main .item .crossout {

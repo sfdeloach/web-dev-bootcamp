@@ -2,48 +2,63 @@
 //console.log("linked to webDevBoot-18-171.html");
 //console.log("created by sfdeloach on 01/31/2017");
 
-var itemHead = '<div class="item"><div class="trash"><i class="fa fa-trash" aria-hidden="true"></i></div><div class="details">';
-var itemFoot = '</div></div>';
+// HTML builder components
+var itemHead = '<div class="item"><div class="trash">' +
+    '<i class="fa fa-trash" aria-hidden="true"></i>' +
+    '</div><div class="details">',
+    itemFoot = '</div></div>';
+
+var iconHead = '<i class="fa fa-',
+    iconFoot = '" aria-hidden="true"></i>',
+    isArrow = true;
 
 // Item crossout
-$('.item').on('click', '.details', function () {
+$('.item-group').on('click', '.item .details', function () {
     'use strict';
-    // TODO this is not crossing out text for appended items
     $(this).toggleClass('crossout');
 });
 
 // Todo slide
 $('#plus').on('click', function () {
     'use strict';
-    $('input').slideToggle();
+    var icon = isArrow ? "caret-down" : "caret-up";
+    $('input').slideToggle(500, function () {
+        $('#plus').html(iconHead + icon + iconFoot);
+    });
+    isArrow = !isArrow;
 });
 
 // Todo add new item
 $("input").keypress(function (event) {
     'use strict';
     if (event.which === 13) {
-        var newItem = $("input").val();
+        $(".item-group").append(itemHead + $("input").val() + itemFoot);
         $("input").val("");
-        $(".item-group").append(itemHead + newItem + itemFoot);
     }
 });
 
-// Trash slide
-$('.item-group').on('mouseenter', '.item', function () {
-    'use strict';
-    $(this).find('.trash').show('slide');
-});
-
-$('.item-group').on('mouseleave', '.item', function () {
-    'use strict';
-    $(this).find('.trash').hide('slide');
-});
+// Trash slide - pure CSS (:hover) used to achieve this effect
+//$('.item-group').on('mouseenter', '.item', function () {
+//    'use strict';
+//    $(this).find('.trash').show('slide');
+//});
+//
+//$('.item-group').on('mouseleave', '.item', function () {
+//    'use strict';
+//    $(this).find('.trash').hide('slide');
+//});
 
 // Trash delete
-$('.item').on('click', '.trash', function () {
+$('.item-group').on('click', '.item .trash', function () {
     'use strict';
-    // TODO this is not removing appended elements
-    $(this).parent('.item').hide('slow', function () {
+    $(this).parent().hide('slow', function () {
         $(this).remove();
     });
+});
+
+// Enable sort
+$(function () {
+    'use strict';
+    $(".item-group").sortable();
+    $(".item-group").disableSelection();
 });
