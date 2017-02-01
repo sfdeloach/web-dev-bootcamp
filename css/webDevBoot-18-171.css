@@ -13,10 +13,10 @@ body {
 #main #title #plus {
     background-color: steelblue;
     color: white;
-    font-size: 150%;
-    width: 44%;
+    font-size: 26px;
+    width: 186.5px;
     float: left;
-    padding: 3%;
+    padding: 13px;
 }
 
 #main #title #plus {
@@ -25,7 +25,7 @@ body {
 
 input {
     background-color: #EEE;
-    font-size: 125%;
+    font-size: 20px;
     width: 400px;
     padding: 12.5px;
     margin: 0;
@@ -43,6 +43,7 @@ input[type=text]:focus {
 }
 
 #main .item .trash {
+    display: none;
     background-color: indianred;
     color: linen;
     text-align: center;
@@ -57,6 +58,12 @@ input[type=text]:focus {
     padding: 13px;
     float: left;
     vertical-align: middle;
+}
+
+#main .item .crossout {
+    color: #AAA;
+    text-decoration: line-through;
+    text-decoration-color: #AAA;
 }
 
 div.item:nth-child(even) {
