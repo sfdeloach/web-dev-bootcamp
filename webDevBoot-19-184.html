@@ -1,0 +1,203 @@
+<!doctype html>
+
+<!--
+      Author:      Steven DeLoach (sfdeloach@gmail.com)
+      Date:        February 4, 2017
+      Course:      Udemy - The Web Developer Bootcamp
+      Instructor:  Colt Steele
+      Title:       Circle appears on keydown event
+      Description: Circle appears on keydown event
+-->
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Steven DeLoach (sfdeloach@gmail.com)">
+    <meta name="description" content="Circle appears on keydown event">
+    <meta name="keywords" content="HTML,CSS,JavaScript">
+    <title>Circle appears on keydown event</title>
+    <link rel="stylesheet" type="text/css" href="/css/webDevBoot-19-184.css">
+</head>
+
+<body>
+    <canvas id="canvas" resize>
+    </canvas>
+
+    <!-- SCRIPTS -->
+    <script type="text/javascript" src="js/paper-full.min.js"></script>
+    <script type="text/javascript" src="js/howler.core.js"></script>
+    <script type="text/paperscript" canvas="canvas">
+        // Object used to create random (haphazard) colors
+        var haphazard = {
+            rn: function (ceiling) {
+                'use strict';
+                if (arguments.length === 0) {
+                    return Math.random();
+                } else {
+                    return Math.round(Math.random() * ceiling);
+                }
+            },
+            color: function () {
+                'use strict';
+                return "rgb(" + this.rn(255) + "," + this.rn(255) + "," + this.rn(255) + ")";
+            }
+        };
+
+        var soundData = {
+            a: new Howl({
+                src: ['./snd/bubbles.mp3']
+            }),
+            b: new Howl({
+                src: ['./snd/clay.mp3']
+            }),
+            c: new Howl({
+                src: ['./snd/confetti.mp3']
+            }),
+            d: new Howl({
+                src: ['./snd/corona.mp3']
+            }),
+            e: new Howl({
+                src: ['./snd/dotted-spiral.mp3']
+            }),
+            f: new Howl({
+                src: ['./snd/flash-1.mp3']
+            }),
+            g: new Howl({
+                src: ['./snd/flash-2.mp3']
+            }),
+            h: new Howl({
+                src: ['./snd/flash-3.mp3']
+            }),
+            i: new Howl({
+                src: ['./snd/glimmer.mp3']
+            }),
+            j: new Howl({
+                src: ['./snd/moon.mp3']
+            }),
+            k: new Howl({
+                src: ['./snd/pinwheel.mp3']
+            }),
+            l: new Howl({
+                src: ['./snd/piston-1.mp3']
+            }),
+            m: new Howl({
+                src: ['./snd/piston-2.mp3']
+            }),
+            n: new Howl({
+                src: ['./snd/piston-3.mp3']
+            }),
+            o: new Howl({
+                src: ['./snd/prism-1.mp3']
+            }),
+            p: new Howl({
+                src: ['./snd/prism-2.mp3']
+            }),
+            q: new Howl({
+                src: ['./snd/prism-3.mp3']
+            }),
+            r: new Howl({
+                src: ['./snd/splits.mp3']
+            }),
+            s: new Howl({
+                src: ['./snd/squiggle.mp3']
+            }),
+            t: new Howl({
+                src: ['./snd/strike.mp3']
+            }),
+            u: new Howl({
+                src: ['./snd/suspension.mp3']
+            }),
+            v: new Howl({
+                src: ['./snd/timer.mp3']
+            }),
+            w: new Howl({
+                src: ['./snd/ufo.mp3']
+            }),
+            x: new Howl({
+                src: ['./snd/veil.mp3']
+            }),
+            y: new Howl({
+                src: ['./snd/wipe.mp3']
+            }),
+            z: new Howl({
+                src: ['./snd/zig-zag.mp3']
+            }),
+            1: new Howl({
+                src: ['./snd/bubbles.mp3']
+            }),
+            2: new Howl({
+                src: ['./snd/clay.mp3']
+            }),
+            3: new Howl({
+                src: ['./snd/confetti.mp3']
+            }),
+            4: new Howl({
+                src: ['./snd/corona.mp3']
+            }),
+            5: new Howl({
+                src: ['./snd/dotted-spiral.mp3']
+            }),
+            6: new Howl({
+                src: ['./snd/flash-1.mp3']
+            }),
+            7: new Howl({
+                src: ['./snd/flash-2.mp3']
+            }),
+            8: new Howl({
+                src: ['./snd/flash-3.mp3']
+            }),
+            9: new Howl({
+                src: ['./snd/glimmer.mp3']
+            }),
+            0: new Howl({
+                src: ['./snd/moon.mp3']
+            }),
+            space: new Howl({
+                src: ['./snd/pinwheel.mp3']
+            }),
+            shift: new Howl({
+                src: ['./snd/piston-1.mp3']
+            }),
+            control: new Howl({
+                src: ['./snd/piston-2.mp3']
+            }),
+            tab: new Howl({
+                src: ['./snd/piston-3.mp3']
+            })
+        };
+
+        // Array will hold all circles created
+        var circles = [];
+
+        function onKeyDown(event) {
+            if (soundData[event.key]) {
+                soundData[event.key].play();
+            
+                var maxPoint = new Point(view.size.width, view.size.height);
+                circles.push(new Path.Circle({
+                    x: haphazard.rn(maxPoint.x),
+                    y: haphazard.rn(maxPoint.y),
+                    radius: 800,
+                    fillColor: haphazard.color()
+                }));
+            }
+        }
+
+        function onFrame(event) {
+            if (circles.length > 0) {
+                for (i = 0; i < circles.length; i += 1) {
+                    circles[i].fillColor.hue += 2;
+                    circles[i].scale(0.9);
+                    if (circles[i].area < 1) {
+                        circles[i].remove();
+                        circles.splice(i, 1);
+                    }
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>

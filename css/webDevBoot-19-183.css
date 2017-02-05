@@ -1,0 +1,22 @@
+body {
+    margin: 0;
+    background: linear-gradient(to left, #606c88, #3f4c6b);
+}
+
+h1 {
+    font-family: monospace;
+    text-align: center;
+    color: lightskyblue;
+    margin: 50px auto;
+    letter-spacing: 2px;
+    font-size: 50px;
+}
+
+canvas {
+    display: block;
+    margin: 10px auto;
+    width: 600px;
+    height: 600px;
+    background: linear-gradient(to left, #C9FFBF, #FFAFBD);
+    box-shadow: 1px 1px 10px lightskyblue;
+}
