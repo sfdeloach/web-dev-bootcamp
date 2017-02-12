@@ -1,0 +1,248 @@
+:root {
+    --darkprimary: #003CA0;
+    --lightprimary: #3296D7;
+    --darksecondary: #EB9B41;
+    --lightsecondary: #FFCD73;
+    --darktertiary: #CC0C0C;
+    --dark: #233244;
+    --darkgrey: #999999;
+    --lightgrey: #D7DCE1;
+    --light: #F5F5FB;
+}
+
+body {
+    font-family: 'Ubuntu', sans-serif;
+    color: var(--dark);
+    background: var(--light);
+    background: linear-gradient(to left, var(--light), var(--lightgrey));
+}
+
+.container {
+    margin: 0 auto;
+    width: 720px;
+}
+
+.channel14 {
+    font-size: 72px;
+    margin: 5px auto;
+    display: block;
+}
+
+.channel {
+    letter-spacing: 5px;
+}
+
+.fourteen {
+    color: var(--light);
+    border-radius: 50%;
+    background-color: var(--darkprimary);
+    padding: 10px;
+    font-family: 'Cutive Mono', monospace;
+    font-weight: bold;
+}
+
+fieldset {
+    border-radius: 8px;
+    border-style: solid;
+    border-width: thin;
+}
+
+legend {
+    font-family: 'Cutive Mono', monospace;
+    font-size: 115%;
+    font-weight: bold;
+    letter-spacing: 3px;
+}
+
+textarea {
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 125%;
+    border-radius: 5px;
+    resize: none;
+}
+
+textarea:focus {
+    outline: none;
+    outline-offset: 0;
+}
+
+.formTextarea {
+    margin: 0 auto;
+    text-align: center;
+}
+
+button {
+    border-radius: 5px;
+    height: 40px;
+    width: 80px;
+    border-width: 0;
+    color: var(--light);
+    margin: 5px;
+    cursor: pointer;
+}
+
+.attach {
+    background-color: var(--darksecondary);
+    ;
+}
+
+.attach:hover {
+    background-color: var(--lightsecondary);
+}
+
+.submit {
+    background-color: var(--darkprimary);
+}
+
+.submit:hover {
+    background-color: var(--lightprimary);
+    cursor: pointer;
+}
+
+.formTitle {
+    text-align: left;
+    float: left;
+    display: block;
+}
+
+input {
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 115%;
+    border-radius: 5px;
+    margin: 5px;
+    padding: 8px 24px 8px 8px;
+    border-style: solid;
+    border-width: thin;
+    border-color: var(--lightgrey);
+}
+
+input:focus {
+    outline-color: var(--lightgrey);
+    outline-offset: -2px;
+}
+
+.formButtons {
+    text-align: right;
+}
+
+.tooltip {
+    position: relative;
+    display: inline-block;
+    border-bottom: 1px dotted --dark;
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: var(--dark);
+    color: var(--light);
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -60px;
+    opacity: 0;
+    transition: opacity 1s;
+}
+
+.tooltip .tooltiptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: var(--dark) transparent transparent transparent;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+}
+
+.post {
+    background: var(--light);
+    padding: 20px;
+    margin: 12px 2px 12px 2px;
+    border-radius: 8px;
+    box-shadow: 2px 2px 10px var(--lightgrey);
+}
+
+.postTitle {
+    text-transform: uppercase;
+}
+
+.postTimeStamp {
+    font-weight: bold;
+    float: right;
+}
+
+hr {
+    border: 0;
+    height: 1px;
+    background-color: var(--lightgrey);
+}
+
+.postFooter {
+    padding-bottom: 18px;
+}
+
+.postOptions {
+    padding: 4px;
+    cursor: pointer;
+}
+
+.postOptionOpen {
+    color: var(--dark);
+    background-color: var(--light);
+    padding: 4px 25px;
+}
+
+.postOptions .postReply,
+.postOptions .postEdit,
+.postOptions .postTrash {
+    color: var(--light);
+    background-color: var(--light);
+    width: 0;
+    transition-property: width;
+    transition-duration: 0.5s;
+}
+
+.postOptions:hover .postReply,
+.postOptions:hover .postEdit,
+.postOptions:hover .postTrash {
+    padding: 4px 25px;
+    width: 20px;
+    margin: 1px;
+    border-radius: 4px;
+}
+
+.postOptions:hover .postReply {
+    background-color: var(--darkprimary);
+}
+
+.postOptions:hover .postEdit {
+    background-color: var(--darksecondary);
+}
+
+.postOptions:hover .postTrash {
+    background-color: var(--darktertiary);
+}
+
+.posterID {
+    float: right;
+    text-align: right;
+}
+
+.posterName {
+    font-weight: bold;
+    display: block;
+}
+
+.posterSquad {
+    letter-spacing: 3px;
+}
