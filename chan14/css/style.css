@@ -54,6 +54,11 @@ legend {
     letter-spacing: 3px;
 }
 
+.formTextarea {
+    margin: 0 auto;
+    text-align: center;
+}
+
 textarea {
     font-family: 'Ubuntu', sans-serif;
     font-size: 125%;
@@ -66,46 +71,13 @@ textarea:focus {
     outline-offset: 0;
 }
 
-.formTextarea {
-    margin: 0 auto;
-    text-align: center;
-}
-
-button {
-    border-radius: 5px;
-    height: 40px;
-    width: 80px;
-    border-width: 0;
-    color: var(--light);
-    margin: 5px;
-    cursor: pointer;
-}
-
-.attach {
-    background-color: var(--darksecondary);
-    ;
-}
-
-.attach:hover {
-    background-color: var(--lightsecondary);
-}
-
-.submit {
-    background-color: var(--darkprimary);
-}
-
-.submit:hover {
-    background-color: var(--lightprimary);
-    cursor: pointer;
-}
-
 .formTitle {
     text-align: left;
     float: left;
     display: block;
 }
 
-input {
+.title {
     font-family: 'Ubuntu', sans-serif;
     font-size: 115%;
     border-radius: 5px;
@@ -116,52 +88,52 @@ input {
     border-color: var(--lightgrey);
 }
 
-input:focus {
+.title:focus {
     outline-color: var(--lightgrey);
     outline-offset: -2px;
 }
 
-.formButtons {
+#formButtons {
     text-align: right;
 }
 
-.tooltip {
-    position: relative;
+#attach,
+#submit {
     display: inline-block;
-    border-bottom: 1px dotted --dark;
-}
-
-.tooltip .tooltiptext {
-    visibility: hidden;
-    width: 120px;
-    background-color: var(--dark);
+    position: relative;
+    border-radius: 5px;
+    height: 40px;
+    width: 80px;
+    border-width: 0;
     color: var(--light);
-    text-align: center;
-    border-radius: 6px;
-    padding: 5px 0;
-    position: absolute;
-    z-index: 1;
-    bottom: 125%;
-    left: 50%;
-    margin-left: -60px;
-    opacity: 0;
-    transition: opacity 1s;
+    margin: 5px;
+    cursor: pointer;
 }
 
-.tooltip .tooltiptext::after {
-    content: "";
-    position: absolute;
-    top: 100%;
-    left: 50%;
-    margin-left: -5px;
-    border-width: 5px;
-    border-style: solid;
-    border-color: var(--dark) transparent transparent transparent;
+#attach {
+    background-color: var(--darksecondary);
+    ;
 }
 
-.tooltip:hover .tooltiptext {
-    visibility: visible;
-    opacity: 1;
+#attach:hover {
+    background-color: var(--lightsecondary);
+}
+
+#submit {
+    background-color: var(--darkprimary);
+}
+
+#submit:hover {
+    background-color: var(--lightprimary);
+    cursor: pointer;
+}
+
+.fa-paperclip,
+.fa-paper-plane {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .post {
@@ -208,7 +180,7 @@ hr {
     color: var(--light);
     background-color: var(--light);
     width: 0;
-    transition-property: width;
+    transition-property: width, padding, margin;
     transition-duration: 0.5s;
 }
 

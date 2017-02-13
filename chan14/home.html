@@ -8,6 +8,7 @@
     <meta name="description" content="Landing page for Channel 14">
     <meta name="keywords" content="ASPD Altamonte Springs Police Department Channel 14 65 Ten 43">
     <title>Channel14</title>
+    <!--Style Sheets-->
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Cutive+Mono|Ubuntu" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="./css/style.css">
@@ -21,24 +22,24 @@
         </div>
         <div class="form">
             <!-- TODO: confirm action is correct -->
-            <form action="POST">
+            <form>
                 <fieldset>
                     <legend>65 Ten 43?</legend>
                     <div class="formTextarea">
                         <textarea name="message" rows="8" cols="55"></textarea>
                     </div>
                     <div class="formTitle">
-                        <input type="text" class="title" placeholder="Enter a title...">
+                        <input type="text" name="title" class="title" placeholder="Enter a title...">
                     </div>
-                    <div class="formButtons">
-                        <button type="button" class="attach tooltip">
+                    <div id="formButtons">
+                        <div id="attach">
+                            <input type="file" id="att" name="attach" accept="image/*">
                             <i class="fa fa-paperclip fa-lg" aria-hidden="true"></i>
-                            <span class="tooltiptext">Attach a file</span>
-                        </button>
-                        <button type="submit" class="submit tooltip">
+                        </div>
+                        <div id="submit">
+                            <input type="submit" id="sub" value="">
                             <i class="fa fa-paper-plane fa-lg" aria-hidden="true"></i>
-                            <span class="tooltiptext">Submit your post</span>
-                        </button>
+                        </div>
                     </div>
                 </fieldset>
             </form>
@@ -54,21 +55,17 @@
                 <hr>
                 <div class="postFooter">
                     <span class="postOptions">
-                    <span class="postOptionOpen tooltip">
+                    <span class="postOptionOpen">
                         <i class="fa fa-sliders fa-lg" aria-hidden="true"></i>
-                        <span class="tooltiptext">options</span>
                     </span>
-                    <span class="postReply tooltip">
+                    <span class="postReply">
                         <i class="fa fa-reply fa-lg" aria-hidden="true"></i>
-                        <span class="tooltiptext">reply</span>
                     </span>
-                    <span class="postEdit tooltip">
+                    <span class="postEdit">
                         <i class="fa fa-pencil fa-lg" aria-hidden="true"></i>
-                        <span class="tooltiptext">edit</span>
                     </span>
-                    <span class="postTrash tooltip">
+                    <span class="postTrash">
                         <i class="fa fa-trash fa-lg" aria-hidden="true"></i>
-                        <span class="tooltiptext">delete</span>
                     </span>
                     <span class="posterID">
                     <span class="posterName">Officer Jane Doe</span>
@@ -87,21 +84,17 @@
                 <hr>
                 <div class="postFooter">
                     <span class="postOptions">
-                    <span class="postOptionOpen tooltip">
+                    <span class="postOptionOpen">
                         <i class="fa fa-sliders fa-lg" aria-hidden="true"></i>
-                        <span class="tooltiptext">options</span>
                     </span>
-                    <span class="postReply tooltip">
+                    <span class="postReply">
                         <i class="fa fa-reply fa-lg" aria-hidden="true"></i>
-                        <span class="tooltiptext">reply</span>
                     </span>
-                    <span class="postEdit tooltip">
+                    <span class="postEdit">
                         <i class="fa fa-pencil fa-lg" aria-hidden="true"></i>
-                        <span class="tooltiptext">edit</span>
                     </span>
-                    <span class="postTrash tooltip">
+                    <span class="postTrash">
                         <i class="fa fa-trash fa-lg" aria-hidden="true"></i>
-                        <span class="tooltiptext">delete</span>
                     </span>
                     </span>
                     <span class="posterID">
@@ -113,8 +106,9 @@
         </div>
     </div>
 
-    <!-- SCRIPTS 
     <script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
+    <script type="text/javascript" src="./js/script.js"></script>
+    <!-- Unused SCRIPTS 
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
     -->
 </body>
