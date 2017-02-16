@@ -9,9 +9,9 @@
     <meta name="keywords" content="ASPD Altamonte Springs Police Department Channel 14 65 Ten 43">
     <title>Channel14</title>
     <!--Style Sheets-->
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="../styles/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/css?family=Cutive+Mono|Ubuntu" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="./css/style.css">
+    <link rel="stylesheet" type="text/css" href="../styles/css/style.css">
 </head>
 
 <body>
@@ -21,8 +21,7 @@
             <span class="fourteen">14</span>
         </div>
         <div class="form">
-            <!-- TODO: confirm action is correct -->
-            <form>
+            <form action='/add-post' method='POST'>
                 <fieldset>
                     <legend>65 Ten 43?</legend>
                     <div class="formTextarea">
@@ -32,14 +31,8 @@
                         <input type="text" name="title" class="title" placeholder="Enter a title...">
                     </div>
                     <div id="formButtons">
-                        <div id="attach">
-                            <input type="file" id="att" name="attach" accept="image/*">
-                            <i class="fa fa-paperclip fa-lg" aria-hidden="true"></i>
-                        </div>
-                        <div id="submit">
-                            <input type="submit" id="sub" value="">
-                            <i class="fa fa-paper-plane fa-lg" aria-hidden="true"></i>
-                        </div>
+                        <!-- Attach file button goes here -->
+                        <button type="submit" id="submit"><i class="fa fa-paper-plane fa-lg" aria-hidden="true"></i></button>
                     </div>
                 </fieldset>
             </form>
@@ -68,8 +61,8 @@
                         <i class="fa fa-trash fa-lg" aria-hidden="true"></i>
                     </span>
                     <span class="posterID">
-                    <span class="posterName">Officer Jane Doe</span>
-                    <span class="posterSquad">Alpha</span>
+                    <span class="postName">Officer Jane Doe</span>
+                    <span class="postSquad">Alpha</span>
                     </span>
                     </span>
                 </div>
@@ -98,8 +91,8 @@
                     </span>
                     </span>
                     <span class="posterID">
-                    <span class="posterName">Officer John Doe</span>
-                    <span class="posterSquad">Alpha</span>
+                    <span class="postName">Officer John Doe</span>
+                    <span class="postSquad">Alpha</span>
                     </span>
                 </div>
             </div>

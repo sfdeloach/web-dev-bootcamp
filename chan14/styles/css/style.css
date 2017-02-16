@@ -14,7 +14,7 @@ body {
     font-family: 'Ubuntu', sans-serif;
     color: var(--dark);
     background: var(--light);
-    background: linear-gradient(to left, var(--light), var(--lightgrey));
+    /*    background: linear-gradient(to left, var(--lightgrey), var(--darkgrey));*/
 }
 
 .container {
@@ -97,7 +97,6 @@ textarea:focus {
     text-align: right;
 }
 
-#attach,
 #submit {
     display: inline-block;
     position: relative;
@@ -110,15 +109,6 @@ textarea:focus {
     cursor: pointer;
 }
 
-#attach {
-    background-color: var(--darksecondary);
-    ;
-}
-
-#attach:hover {
-    background-color: var(--lightsecondary);
-}
-
 #submit {
     background-color: var(--darkprimary);
 }
@@ -128,12 +118,8 @@ textarea:focus {
     cursor: pointer;
 }
 
-.fa-paperclip,
 .fa-paper-plane {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    color: var(--light);
 }
 
 .post {
@@ -210,11 +196,11 @@ hr {
     text-align: right;
 }
 
-.posterName {
+.postName {
     font-weight: bold;
     display: block;
 }
 
-.posterSquad {
+.postSquad {
     letter-spacing: 3px;
 }

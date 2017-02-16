@@ -1,0 +1,43 @@
+<% include partials/header %>
+<% include partials/form %>
+
+        <div class="posts">
+            <div class="post">
+                <div class="postHeader">
+                    
+                    <% posts.forEach( function (post) { %>
+                    
+                    <span class="postTitle"><%= post.title %></span>
+                    <span class="postTimeStamp"><%= post.timeStamp %></span>
+                </div>
+                <hr>
+                <div class="postMessage"><%= post.message %></div>
+                <hr>
+                <div class="postFooter">
+                    <span class="postOptions">
+                    <span class="postOptionOpen">
+                        <i class="fa fa-sliders fa-lg" aria-hidden="true"></i>
+                    </span>
+                    <span class="postReply">
+                        <i class="fa fa-reply fa-lg" aria-hidden="true"></i>
+                    </span>
+                    <span class="postEdit">
+                        <i class="fa fa-pencil fa-lg" aria-hidden="true"></i>
+                    </span>
+                    <span class="postTrash">
+                        <i class="fa fa-trash fa-lg" aria-hidden="true"></i>
+                    </span>
+                    </span>
+                    <span class="posterID">
+                    <span class="postName"><%= post.name %></span>
+                    <span class="postSquad"><%= post.squad %></span>
+                    
+                    <% }); %>
+                    
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<% include partials/footer %>
