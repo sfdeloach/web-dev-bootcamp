@@ -1,0 +1,32 @@
+/* 
+ *  A list of npm packages that assist in web development
+ */
+
+// Setup a web server
+// npm install express --save
+var express = require("express");
+var app = express();
+// setup a folder on the same level as your express server that
+// will have its contents visible to the client (css and js files)
+app.use(express.static("public")); 
+
+// Access data from a POST request
+// npm install body-parser --save
+var bodyParser = require("body-parser");
+app.use(bodyParser.urlencoded({
+	extended: true
+}));
+
+// Enable EJS to dynamically create web pages
+// npm install ejs --save
+// optional, .ejs extension not necessary if this line is used
+app.set("view engine", "ejs");
+
+// Gain access to APIs from the web
+// npm install request --save
+var request = require('request');
+request('http://www.google.com', function (error, response, body) {
+    if (!error && response.statusCode == 200) {
+      console.log(body); // Show the HTML for the Google homepage. 
+    }
+});
