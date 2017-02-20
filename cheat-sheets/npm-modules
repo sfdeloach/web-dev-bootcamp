@@ -1,5 +1,10 @@
 /* 
  *  A list of npm packages that assist in web development
+ *
+ *  - express
+ *  - bodyParser
+ *  - ejs
+ *  - request
  */
 
 // Setup a web server
@@ -10,7 +15,8 @@ var app = express();
 // will have its contents visible to the client (css and js files)
 app.use(express.static("public")); 
 
-// Access data from a POST request
+// Access data from a POST request by using req.body.[name] inside the
+// app.post(function{}) callback function
 // npm install body-parser --save
 var bodyParser = require("body-parser");
 app.use(bodyParser.urlencoded({
@@ -22,11 +28,12 @@ app.use(bodyParser.urlencoded({
 // optional, .ejs extension not necessary if this line is used
 app.set("view engine", "ejs");
 
-// Gain access to APIs from the web
+// Gain access to APIs from the web, delivers a http request as a string
 // npm install request --save
 var request = require('request');
 request('http://www.google.com', function (error, response, body) {
     if (!error && response.statusCode == 200) {
       console.log(body); // Show the HTML for the Google homepage. 
+      var obj = JSON.parse(body); // JS standard library converts string to object
     }
 });

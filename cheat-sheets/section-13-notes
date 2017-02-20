@@ -1,0 +1,49 @@
+## 131 Introduction to the DOM
+
+* the entire web page (content and style) is an object
+* console.log() vs console.dir()
+
+## 132 Defining the DOM
+
+## 133 Select and Manipulate
+    
+* anything in the page can be found in the document object
+
+## 134 Important Selector Methods
+
+* document.querySelector()
+* document.querySelectorAll()
+* document.getElementById()
+* document.getElementsByClassName()
+* document.getElementById()
+
+## 135 Selector Exercise
+
+## 136 Note about next lecture
+
+## 137 Manipulating Style
+
+* tag.style.<access any CSS property here>
+* Not a good idea to use JS to manipulate style
+* It violates the separation of concern principle, it is better to define a class in CSS and use one of the following
+
+#####Examples
+
+    tag.classList.add("css-class") //adds a css class to element
+    tag.classList.remove("css-class") //removes
+    tag.classList.toggle("css-class") //the preferred method
+
+
+## 138 Manipulating Text and Content
+
+* tag.textContent vs tag.innerHTML
+
+## 139 Manipulating Attributes
+
+* how to change any attribute inside any element (ie. src in images)
+* tag.getAttribut(key);
+* tag.setAttribute(key, value);    
+
+## 140 Note about next lecture
+
+## 141 Playing w/ Google Code Along
