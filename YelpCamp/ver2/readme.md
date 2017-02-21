@@ -48,5 +48,20 @@ Test URLs for images:
 
 * Install and configure mongoose
 * Setup campground model
-* Use campground model insdie of our routes
+* Use campground model inside of our routes - only added create() and find() features
 
+### objective set 6 - Show page
+
+* Review the RESTful routes we have so far
+* Add description to our campground model
+* Show db.collection.drop()
+* Add a show route/template
+
+### summary of 7 RESTful routing
+
+name    url               verb      description
+--------------------------------------------------------------------------
+index   /campgrounds      GET       display a list of all campgrounds
+new     /camgrounds/new   GET       displays form to make a new campground
+create  /campgrounds      POST      adds a new campground to the db
+show    /campgrounds/:id  GET       shows info about one campground
