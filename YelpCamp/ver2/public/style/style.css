@@ -1,0 +1,9 @@
+.yelpcamp-wrap {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.yelpcamp-form-center {
+    width: 300px;
+    margin: 0 auto;
+}
