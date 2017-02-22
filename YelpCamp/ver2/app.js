@@ -22,31 +22,33 @@ var Campground = mongoose.model("Campground", campgroundSchema);
 
 // Setup routes
 app.get('/', function (req, res) {
-    console.log("GET request for /");
+    console.log("[ ]      GET request for /");
     res.render('landing.ejs');
 });
 
 // RESTful route: INDEX
-app.get('/index', function (req, res) {
-    console.log("GET request for /campgrounds");
-    
-    // Connects to db, results no longer come from array located within this file
-    Campground.find({}, function (err, allCampgrounds) {
+app.get('/campgrounds', function (req, res) {
+    console.log("[INDEX]  GET request for /campgrounds");
+    Campground.find({}, function (err, foundCampground) {
         if (err) {
             console.log(err);
         } else {
             res.render('campgrounds.ejs', {
-                campgrounds: allCampgrounds
+                campgrounds: foundCampground
             });
         }
     });
 });
 
+// RESTful route: NEW
+app.get('/campgrounds/new', function (req, res) {
+    console.log("[NEW]    GET request for /campgrounds/new");
+    res.render('new-campgrounds.ejs');
+});
+
 // RESTful route: CREATE
 app.post('/campgrounds', function (req, res) {
-    console.log("POST request for /campgrounds");
-    
-    // Connects to db, posts are no longer appended to array located within this file
+    console.log("[CREATE] POST request for /campgrounds");
     // TODO: Validate (and sanitize) user input?
     Campground.create({
         name: req.body.location,
@@ -56,25 +58,26 @@ app.post('/campgrounds', function (req, res) {
         if (err) {
             console.log("An error occured during create(): " + err);
         } else {
-            console.log("\ncreate() was successful:\n" + campground);
-            res.redirect('/index');
+            res.redirect('/campgrounds');
         }
     });
-});
-
-// RESTful route: NEW
-app.get('/campgrounds/new', function (req, res) {
-    console.log("GET request for /campgrounds/new");
-    res.render('new-campgrounds.ejs');
 });
 
 // RESTful route: SHOW
 app.get('/campgrounds/:id', function (req, res) {
     var id = req.params.id;
-    console.log("GET request for /campgrounds/" + id);
-    // TODO: Campground.findById(id, function (err, foundCampground) { res.render('campground-details.ejs', { campground: foundCampground }); })
-    res.send('<a href="/">You have reached the SHOW page, stay tuned for further developments...</a>');
+    console.log("[SHOW]   GET request for /campgrounds/" + id);
+    Campground.findById(id, function (err, foundCampground) {
+        res.render('campground-details.ejs', {
+            campground: foundCampground
+        });
+    });
 });
+
+// TODOs:
+// RESTful route: EDIT
+// RESTful route: UPDATE
+// RESTful route: DESTROY
 
 // Start server
 app.listen(3001, function () {
