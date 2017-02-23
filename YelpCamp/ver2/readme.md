@@ -67,4 +67,4 @@ create  /campgrounds          POST   adds new doc to the db
 show    /campgrounds/:id      GET    shows info about one campground
 edit    /campgrounds/:id/edit GET    display form to edit campground
 update  /campgrounds          PUT    alters existing doc in db
-destroy /campgrounds/:id      DELETE removes doc fro
+destroy /campgrounds/:id      DELETE removes doc from db

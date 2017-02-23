@@ -1,0 +1,21 @@
+<% include partials/header.ejs %>
+
+    <h1>Edit blog</h1>
+
+    <form action="/blog-entries/<%= blog._id %>" method="put"> <!--this is not right-->
+        <div>
+            <input type="text" name="title" value="<%= blog.title %>">
+        </div>
+        <div>
+            <textarea name="message" rows="20" cols="100"><%= blog.message %></textarea>
+        </div>
+        <div>
+            <input type="text" name="image" value="<%= blog.image %>">
+        </div>
+        <div>
+            <input type="submit" value="Submit">
+        </div>
+    </form>
+    <a href="/blog-entries">Back to blogs</a>
+
+<% include partials/footer.ejs %>
