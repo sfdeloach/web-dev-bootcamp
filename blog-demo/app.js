@@ -4,27 +4,41 @@ var express = require('express'),
     bodyParser = require('body-parser'),
     mongoose = require('mongoose');
 
+// App configurations
 app.use(bodyParser.urlencoded({
     extended: true
 }));
 app.use(express.static('public'));
-mongoose.connect('mongodb://localhost/blog-demo'); // using 127.0.0.1 over localhost, does not
-                                                   // require an active internet connection
+mongoose.connect('mongodb://localhost/blog-demo');
+
 // Schema setup
 var blogSchema = new mongoose.Schema({
     title: String,
     message: String,
     image: String,
-    isActive: Boolean // flag used for a soft delete
+    created: {
+        type: Date,
+        default: Date.now
+    },
+    isActive: { // soft delete flag
+        type: Boolean,
+        default: true
+    }
 });
 
 // Model created from schema
 var Blog = mongoose.model('Blog', blogSchema);
 
+// RESTFUL ROUTES /////////////////////////////////////////////////////////////
+
+app.get('/', function (req, res) {
+    res.redirect('/blog-entries');
+});
+
 // index GET display list of all blog entries
 app.get('/blog-entries', function (req, res) {
     console.log('index');
-    var blogs = Blog.find({}, function (err, blogs) {
+    Blog.find({}, function (err, blogs) {
         if (err) {
             console.log('!!! INDEX ROUTE ERROR !!!');
             console.log(err);
@@ -48,8 +62,7 @@ app.post('/blog-entries', function (req, res) {
     Blog.create({
         title: req.body.title,
         message: req.body.message,
-        image: req.body.image,
-        isActive: true
+        image: req.body.image
     }, function (err, blog) {
         if (err) {
             console.log('!!! CREATE ROUTE ERROR !!!');
@@ -83,12 +96,13 @@ app.get('/blog-entries/:id/edit', function (req, res) {
 // update PUT alters existing blog in db  <-- This is not correct at all!!!
 app.put('/blog-entries/:id', function (req, res) {
     console.log('update');
-    var query = { _id: req.params.id };
+    var query = {
+        _id: req.params.id
+    };
     Blog.update(query, {
         title: req.body.title,
         message: req.body.message,
-        image: req.body.image,
-        isActive: true
+        image: req.body.image
     }, function (err, blog) {
         if (err) {
             console.log('!!! UPDATE ROUTE ERROR !!!');
