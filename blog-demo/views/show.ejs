@@ -1,0 +1,19 @@
+<% include partials/header.ejs %>
+
+<div>
+    <div>
+        <h1><%= blog.title; %></h1>
+    </div>
+    <div>
+        <image src='<%= blog.image; %>'>
+    </div>
+    <div>
+        <%= blog.message; %>
+    </div>
+</div>
+<a href="/blog-entries">Return</a>
+<a href="/blog-entries/<%= blog._id %>/edit">Edit</a>
+<a href="#">Soft delete</a>
+<a href="#">Hard delete</a>
+    
+<% include partials/footer.ejs %>
