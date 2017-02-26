@@ -1,28 +1,37 @@
-<% include partials/header.ejs %>
-
-    <h1>Blog Site</h1>
-
-    <a href="/blog-entries/new">New blog</a>
-
-    <% blogs.forEach(function (blog) { %>
-        <hr>
-        <div>
-            <div>
-                <image src='<%= blog.image; %>'>
-                    <span><%= blog.created; %></span>
-            </div>
-            <div>
-                <h3>
-                    <%= blog.title; %>
-                </h3>
-            </div>
-            <div>
-                <%= blog.message; %>
-            </div>
-            <div>
-                <a href="/blog-entries/<%= blog._id %>">Read more</a>
-            </div>
+<% include ./partials/header.ejs %>
+    <div class="ui main text container segment">
+        <div class="ui huge header">RESTful Blog App</div>
+        <div class="ui divided items">
+            <% blogs.forEach(function (blog) { %>
+                <div class="item">
+                    <div class="image">
+                        <img src='<%= blog.image; %>'>
+                    </div>
+                    <div class="content">
+                        <a class="header" href="/blog-entries/<%= blog._id %>">
+                            <%= blog.title; %>
+                        </a>
+                        <div class="extra">
+                            <%= blog.created.toLocaleString(); %>
+                        </div>
+                        <div class="description">
+                            <% if (blog.message && blog.message.length > 0) { %>
+                                <p>
+                                    <%- blog.message.substr(0, 50) + "..." %>
+                                </p>
+                            <% } else { %>
+                                    <p>This blog is empty!</p>
+                            <% } %>
+                        </div>
+                        <div class="extra">
+                            <a class="ui basic tiny blue button" href="/blog-entries/<%= blog._id %>">
+                                Read more
+                                <i class="right chevron icon"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            <% }); %>
         </div>
-        <% }); %>
-
-<% include partials/footer.ejs %>
+    </div>
+<% include ./partials/footer.ejs %>

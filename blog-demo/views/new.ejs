@@ -1,19 +1,28 @@
-<% include partials/header.ejs %>
-
-    <form action="/blog-entries" method="post">
-        <div>
-            <input type="text" name="title" placeholder="title...">
-        </div>
-        <div>
-            <textarea name="message" rows="20" cols="100" placeholder="entry..."></textarea>
-        </div>
-        <div>
-            <input type="text" name="image" placeholder="image url...">
-        </div>
-        <div>
-            <input type="submit" value="Submit">
-        </div>
-    </form>
-    <a href="/blog-entries">Back to blogs</a>
-
-<% include partials/footer.ejs %>
+<% include ./partials/header.ejs %>
+    <div class="ui main text container segment">
+        <div class="ui huge header">New Blog</div>
+        <form class="ui form" action="/blog-entries" method="post">
+            <div class="field">
+                <label>Title</label>
+                <input name="blog[title]" type="text">
+            </div>
+            <div class="field">
+                <label>Message</label>
+                <textarea name="blog[message]" rows="16" cols="70"></textarea>
+            </div>
+            <div class="field">
+                <label>Image URL</label>
+                <input name="blog[image]" type="text">
+            </div>
+            <div class="field">
+                <input class="ui basic blue button" type="submit" value="Submit">
+                <div class="ui animated fade button" tabindex="0">
+                    <div class="visible content"><a href="/blog-entries">Back to blogs</a></div>
+                    <div class="hidden content">
+                        <i class="left arrow icon"></i>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <% include ./partials/footer.ejs %>

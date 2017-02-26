@@ -2,16 +2,25 @@
 var express = require('express'),
     app = express(),
     bodyParser = require('body-parser'),
-    mongoose = require('mongoose');
+    mongoose = require('mongoose'),
+    methodOverride = require('method-override'),
+    expressSanitizer = require('express-sanitizer');
 
 // App configurations
 app.use(bodyParser.urlencoded({
     extended: true
 }));
+app.use(expressSanitizer()); // must come after app.use(bodyParser...)
 app.use(express.static('public'));
+app.use(methodOverride("_method")); // workaround for PUT and DELETE
 mongoose.connect('mongodb://localhost/blog-demo');
 
-// Schema setup
+// Schema setup - may wish to provide defaults on fields,
+// weird behavior may result when operations/methods are
+// performed on empty sets...on second thought, setting up
+// defaults is pointless on fields available to the user to
+// provide input on since an empty input on a form will
+// override the defaults specified here
 var blogSchema = new mongoose.Schema({
     title: String,
     message: String,
@@ -35,13 +44,13 @@ app.get('/', function (req, res) {
     res.redirect('/blog-entries');
 });
 
-// index GET display list of all blog entries
+// INDEX - GET display list of all blog entries
 app.get('/blog-entries', function (req, res) {
-    console.log('index');
     Blog.find({}, function (err, blogs) {
         if (err) {
             console.log('!!! INDEX ROUTE ERROR !!!');
             console.log(err);
+            res.send('Error, unable to get INDEX');
         } else {
             res.render('index.ejs', {
                 blogs: blogs
@@ -50,71 +59,85 @@ app.get('/blog-entries', function (req, res) {
     });
 });
 
-// new GET display form for a new blog entry
+// NEW - GET display form for a new blog entry
 app.get('/blog-entries/new', function (req, res) {
-    console.log('new');
     res.render('new.ejs');
 });
 
-// create POST adds new blog entry to the db
+// CREATE - POST adds new blog entry to the db
 app.post('/blog-entries', function (req, res) {
-    console.log('create');
-    Blog.create({
-        title: req.body.title,
-        message: req.body.message,
-        image: req.body.image
-    }, function (err, blog) {
+    req.body.blog.message = req.sanitize(req.body.blog.message);
+    Blog.create(req.body.blog, function (err, blog) {
         if (err) {
             console.log('!!! CREATE ROUTE ERROR !!!');
             console.log(err);
+            res.send('Error, unable to CREATE document');
         } else {
             res.redirect('/blog-entries');
         }
     });
 });
 
-// show GET shows more info on one blog
+// SHOW - GET shows more info on one blog
 app.get('/blog-entries/:id', function (req, res) {
-    console.log('show');
     Blog.findById(req.params.id, function (err, foundBlog) {
-        res.render('show.ejs', {
-            blog: foundBlog
-        });
+        if (err) {
+            console.log('!!! SHOW ROUTE ERROR !!!');
+            console.log(err);
+            res.send('Error, unable to SHOW document')
+        } else {
+            res.render('show.ejs', {
+                blog: foundBlog
+            });
+        }
     });
 });
 
-// edit GET display form to edit campground
+// EDIT - GET display form to edit blog
 app.get('/blog-entries/:id/edit', function (req, res) {
-    console.log('edit');
     Blog.findById(req.params.id, function (err, foundBlog) {
-        res.render('edit.ejs', {
-            blog: foundBlog
-        });
+        if (err) {
+            console.log('!!! EDIT ROUTE ERROR !!!');
+            console.log(err);
+            res.send('Error, unable to EDIT document');
+        } else {
+            res.render('edit.ejs', {
+                blog: foundBlog
+            });
+        }
     });
 });
 
-// update PUT alters existing blog in db  <-- This is not correct at all!!!
+// UPDATE - PUT alters existing blog in db
 app.put('/blog-entries/:id', function (req, res) {
-    console.log('update');
-    var query = {
-        _id: req.params.id
-    };
-    Blog.update(query, {
-        title: req.body.title,
-        message: req.body.message,
-        image: req.body.image
-    }, function (err, blog) {
+    req.body.blog.message = req.sanitize(req.body.blog.message);
+    Blog.findByIdAndUpdate(req.params.id, req.body.blog, function (err, blog) {
         if (err) {
             console.log('!!! UPDATE ROUTE ERROR !!!');
             console.log(err);
+            res.send('Error, unable to UPDATE document');
         } else {
-            res.redirect('/blog-entries');
+            res.redirect('/blog-entries/' + req.params.id);
         }
     });
 });
 
-// TODO destroy /campgrounds/:id      DELETE removes doc from db
+// DESTROY - DELETE removes document from db
+app.delete('/blog-entries/:id', function (req, res) {
+    Blog.findByIdAndRemove(req.params.id, function (err) {
+        if (err) {
+            console.log('!!! DESTROY ROUTE ERROR !!!');
+            console.log(err);
+            res.send('Error, unable to DESTROY document');
+        } else {
+            res.redirect('/blog-entries/');
+        }
+    });
+});
 
+// END OF RESTFUL ROUTES //////////////////////////////////////////////////////
+
+// Start server
 app.listen(3000, function () {
     console.log("blog-demo app is listening on port 3000");
 });
