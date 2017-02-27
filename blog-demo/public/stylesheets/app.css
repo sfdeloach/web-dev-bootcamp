@@ -2,10 +2,21 @@
     margin-top: 7em;
 }
 
+.ui.items>.item>.image {
+    margin: auto;
+}
+
 i.icon {
     font-size: 2em;
 }
 
-#delete-form {
+.delete-buttons {
     display: inline;
+}
+.ui.button>.icon:not(.button) {
+    vertical-align: baseline;
+}
+
+i.icon.chevron.right:before {
+    vertical-align: text-bottom;
 }

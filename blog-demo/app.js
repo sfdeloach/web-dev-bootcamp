@@ -46,7 +46,7 @@ app.get('/', function (req, res) {
 
 // INDEX - GET display list of all blog entries
 app.get('/blog-entries', function (req, res) {
-    Blog.find({}, function (err, blogs) {
+    Blog.find({isActive: true}, function (err, blogs) {
         if (err) {
             console.log('!!! INDEX ROUTE ERROR !!!');
             console.log(err);
@@ -118,6 +118,19 @@ app.put('/blog-entries/:id', function (req, res) {
             res.send('Error, unable to UPDATE document');
         } else {
             res.redirect('/blog-entries/' + req.params.id);
+        }
+    });
+});
+
+// SOFT DELETE (non-standard REST route) - changes isActive to false
+app.put('/blog-entries/:id/soft-delete', function (req, res) {
+    Blog.findByIdAndUpdate(req.params.id, {isActive: false}, function (err) {
+        if (err) {
+            console.log('!!! SOFT DELETE ROUTE ERROR !!!');
+            console.log(err);
+            res.send('Error, unable to SOFT DELETE document');
+        } else {
+            res.redirect('/blog-entries');
         }
     });
 });

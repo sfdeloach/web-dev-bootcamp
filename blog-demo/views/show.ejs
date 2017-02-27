@@ -14,8 +14,10 @@
         <div class="ui items">
             <a class="ui basic tiny blue button" href="/blog-entries">Return</a>
             <a class="ui basic tiny green button" href="/blog-entries/<%= blog._id %>/edit">Edit</a>
-            <a class="ui basic tiny orange button" href="#">Soft delete</a>
-            <form id="delete-form" action="/blog-entries/<%=blog._id%>?_method=DELETE" method="POST">
+            <form class="delete-buttons" action="/blog-entries/<%=blog._id%>/soft-delete?_method=PUT" method="POST">
+                <button class="ui basic tiny orange button">Soft delete</button>
+            </form>
+            <form class="delete-buttons" action="/blog-entries/<%=blog._id%>?_method=DELETE" method="POST">
                 <button class="ui basic tiny red button">Hard Delete</button>
             </form>
         </div>
