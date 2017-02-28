@@ -7,6 +7,3 @@
 * Walk through auth flow
 * Discuss sessions
  - Express Session
-
-# hello, This is Markdown Live Preview
-
