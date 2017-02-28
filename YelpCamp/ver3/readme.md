@@ -84,12 +84,16 @@ Test URLs for images:
 * This is a tool used to test route setups
 
 ### objective set 9 - add the comment model
+
 * Make the errors go away - error driven development
 * Display the comments associated with the campgrounds
 * Slight refactor, rename view files to match RESTful conventions
 
-### objective set 10 - ???
+### objective set 10 - comments new/create
 
+* Discuss nested routes
+* Add the comment new and create routes
+* Add the new comment form
 
 
 

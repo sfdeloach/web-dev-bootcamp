@@ -18,7 +18,9 @@ mongoose.connect('mongodb://localhost/yelp_camp');
 // Seed database for testing
 seedDb();
 
+// =====================
 // Setup routes
+// =====================
 app.get('/', function (req, res) {
     console.log("[ ]      GET request for /");
     res.render('landing.ejs');
@@ -31,7 +33,7 @@ app.get('/campgrounds', function (req, res) {
         if (err) {
             console.log(err);
         } else {
-            res.render('index.ejs', {
+            res.render('campgrounds/index.ejs', {
                 campgrounds: foundCampground
             });
         }
@@ -41,18 +43,14 @@ app.get('/campgrounds', function (req, res) {
 // RESTful route: NEW
 app.get('/campgrounds/new', function (req, res) {
     console.log("[NEW]    GET request for /campgrounds/new");
-    res.render('new.ejs');
+    res.render('campgrounds/new.ejs');
 });
 
 // RESTful route: CREATE
 app.post('/campgrounds', function (req, res) {
     console.log("[CREATE] POST request for /campgrounds");
     // TODO: Validate (and sanitize) user input?
-    Campground.create({
-        name: req.body.location,
-        image: req.body.imageUrl,
-        description: req.body.description
-    }, function (err, campground) {
+    Campground.create(campground, function (err, campground) {
         if (err) {
             console.log("An error occured during create(): " + err);
         } else {
@@ -69,7 +67,7 @@ app.get('/campgrounds/:id', function (req, res) {
         if (err) {
             console.log(err);
         } else {
-            res.render('show.ejs', {
+            res.render('campgrounds/show.ejs', {
                 campground: foundCampground
             });
         }
@@ -80,6 +78,36 @@ app.get('/campgrounds/:id', function (req, res) {
 // RESTful route: EDIT
 // RESTful route: UPDATE
 // RESTful route: DESTROY
+
+// =====================
+// START - Setup nested routes
+// =====================
+
+// RESTful route: NEW
+app.get('/campgrounds/:id/comments/new', function (req, res) {
+    var id = req.params.id;
+    console.log("[NEW]    GET request for /campgrounds/" + id + "/comments/new");
+    Campground.findById(id).populate("comments").exec(function (err, foundCampground) {
+        if (err) {
+            console.log(err);
+        } else {
+            res.render('comments/new.ejs', {
+                campground: foundCampground
+            });
+        }
+    });
+});
+
+// RESTful route: CREATE
+app.post('/campgrounds/:id/comments', function (req, res) {
+    var id = req.params.id;
+    console.log("[CREATE] POST request for /campgrounds/" + id + "/comments");
+    // TODO - Create comment and attach to campground
+});
+
+// =====================
+// END - Setup nested routes
+// =====================
 
 // Start server
 app.listen(3001, function () {
