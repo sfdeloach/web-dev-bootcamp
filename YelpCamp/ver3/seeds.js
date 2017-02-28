@@ -30,34 +30,41 @@ campgroundData = [{
 
 function seedDb() {
     'use strict';
-    // Wipeout the campground collection
-    Campground.remove({}, function (err) {
+    // Wipeout the comments and campground collection
+    Comment.remove({}, function (err) {
         if (err) {
             console.log(err);
         } else {
-            console.log('...campground collection dropped');
-            // Add campgrounds
-            campgroundData.forEach(function (seed) {
-                Campground.create(seed, function (err, campground) {
-                    if (err) {
-                        console.log(err);
-                    } else {
-                        console.log('...added a campground');
-                        // Create and attach a comment
-                        Comment.create({
-                            text: "Wonderful, really enjoyed it!",
-                            author: "Homer Simpson"
-                        }, function (err, comment) {
+            console.log('...comment collection dropped');
+            Campground.remove({}, function (err) {
+                if (err) {
+                    console.log(err);
+                } else {
+                    console.log('...campground collection dropped');
+                    // Add campgrounds
+                    campgroundData.forEach(function (seed) {
+                        Campground.create(seed, function (err, campground) {
                             if (err) {
                                 console.log(err);
                             } else {
-                                campground.comments.push(comment);
-                                campground.save();
-                                console.log('...created new comment');
+                                console.log('...added a campground');
+                                // Create and attach a comment
+                                Comment.create({
+                                    text: "Meatloaf pork belly boudin short ribs landjaeger burgdoggen. Beef ribs shank tongue sirloin ball tip, ground round sausage. Pork loin kielbasa boudin turducken, bresaola venison ribeye doner beef ribs tenderloin jowl sirloin filet mignon cupim. Venison frankfurter burgdoggen flank pork belly tri-tip.",
+                                    author: "Homer Simpson"
+                                }, function (err, comment) {
+                                    if (err) {
+                                        console.log(err);
+                                    } else {
+                                        campground.comments.push(comment);
+                                        campground.save();
+                                        console.log('...created new comment');
+                                    }
+                                });
                             }
                         });
-                    }
-                });
+                    });
+                }
             });
         }
     });

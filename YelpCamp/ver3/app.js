@@ -4,12 +4,13 @@ var express = require('express'),
     bodyParser = require('body-parser'),
     mongoose = require('mongoose'),
     Campground = require('./models/campground'),
+    Comment = require('./models/comment')
     seedDb = require('./seeds');
 
 app.use(bodyParser.urlencoded({
     extended: true
 }));
-app.use(express.static('public'));
+app.use(express.static(__dirname + '/public'));
 
 // using 127.0.0.1 below will not require an active internet connection
 // using localhost will require an active internet connection
@@ -49,8 +50,8 @@ app.get('/campgrounds/new', function (req, res) {
 // RESTful route: CREATE
 app.post('/campgrounds', function (req, res) {
     console.log("[CREATE] POST request for /campgrounds");
-    // TODO: Validate (and sanitize) user input?
-    Campground.create(campground, function (err, campground) {
+    // TODO: Validate (and sanitize) user input? <-- only if <%- %> is used in template, open to script attack
+    Campground.create(req.body.campground, function (err, campground) {
         if (err) {
             console.log("An error occured during create(): " + err);
         } else {
@@ -102,7 +103,25 @@ app.get('/campgrounds/:id/comments/new', function (req, res) {
 app.post('/campgrounds/:id/comments', function (req, res) {
     var id = req.params.id;
     console.log("[CREATE] POST request for /campgrounds/" + id + "/comments");
-    // TODO - Create comment and attach to campground
+    // lookup campground
+    Campground.findById(id, function(err, foundCampground) {
+        if (err) {
+            console.log(err);
+        } else {
+            // create new comment
+            Comment.create(req.body.comment, function (err, newComment) {
+               if (err) {
+                   console.log(err);
+               } else {
+                   // connect new comment to campground
+                   foundCampground.comments.push(newComment);
+                   foundCampground.save();
+                   // redirect to campground show page
+                   res.redirect('/campgrounds/' + id);
+               }
+            });
+        }
+    });
 });
 
 // =====================

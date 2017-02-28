@@ -1,9 +1,11 @@
-.yelpcamp-wrap {
-    display: flex;
-    flex-wrap: wrap;
+.thumbnail img {
+    width: 100%;
 }
 
-.yelpcamp-form-center {
-    width: 300px;
-    margin: 0 auto;
+.thumbnail {
+    padding: 0;
+}
+
+.thumbnail .caption-full {
+    padding: 10px;
 }
