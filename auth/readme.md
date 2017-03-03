@@ -24,5 +24,10 @@
 * Add root route and template
 * Add secret route and template
 
+## Code Along Part 2
+* Create User model
+* Configure passport
+
+
 
 
