@@ -28,6 +28,14 @@
 * Create User model
 * Configure passport
 
+## Code Along Part 3
+* Add Register route
+* Add Register form
 
+## Code Along Part 4
+* Add login route
+* Add login form
 
-
+## Code Along Part 5
+* Add logout route
+* Add isLoggedIn middleware
