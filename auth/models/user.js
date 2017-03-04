@@ -4,7 +4,7 @@ var mongoose = require('mongoose'),
 mongoose.connect('mongodb://localhost/auth_demo_app');
 
 var userSchema = mongoose.Schema({
-    name: String,
+    username: String,
     password: String
 });
 

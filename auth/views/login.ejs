@@ -1,5 +1,12 @@
 <% include ./partials/header.ejs %>
-    <h1>You have reached the home page</h1>
+    <h1>Login Page</h1>
+    <form action="/login" method="POST">
+        Username:<br>
+        <input type="text" name="username"><br>
+        Password:<br>
+        <input type="password" name="password"><br><br>
+        <input type="submit">
+    </form>
     <ul>
         <li><a href="/">Home</a></li>
         <li><a href="/register">Sign Up!</a></li>
