@@ -137,8 +137,3 @@ Test URLs for images:
 
 
 
-
-
-
-
-
