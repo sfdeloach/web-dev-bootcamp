@@ -183,6 +183,13 @@ Test URLs for images:
 * Hide/show edit and delete buttons
 * Refactor middleware
 
+## version 11 (03/20/2017)
+
+### objective set 25 - adding in flash
+
+* Demo working version
+* Install and configure connect-flash
+* Add bootstrap alerts to header
 
 
 
