@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Steven DeLoach (sfdeloach@gmail.com)">
-    <title>YelpCamp! Ver3</title>
+    <title>YelpCamp! Ver12</title>
     <!-- STYLE SHEETS -->
     <link rel="stylesheet" type="text/css" href="/style/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="/style/style.css">
@@ -35,7 +35,7 @@
                         <li><a href="/login">Login</a></li>
                         <li><a href="/register">Sign Up</a></li>
                     <% } else { %>
-                        <li><a href="#">Welcome, <%= currentUser.username %>!</a></li>
+                        <li><a href="/">Welcome, <%= currentUser.username %>!</a></li>
                         <li><a href="/logout">Logout</a></li>
                     <% } %>
                 </ul>
