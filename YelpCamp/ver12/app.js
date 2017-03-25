@@ -1,3 +1,6 @@
+/*jslint node: true */
+'use strict';
+
 // Setup up libraries and frameworks
 var express = require('express'),
     app = express(),
@@ -66,6 +69,8 @@ app.use("/campgrounds/:id/comments", commentRoutes);
 app.use(indexRoutes);
 
 // Start server
-app.listen(3000, function () {
-    console.log("YelpCamp server is listening on port 3000...");
+var server = app.listen(process.env.PORT || 3000, function () {
+    var activePort = server.address().port,
+        startDate = new Date().toLocaleString();
+    console.log('[%s] YelpCamp server is listening on port %s', startDate, activePort);
 });
