@@ -1,0 +1,18 @@
+# Four contexts of the keyword 'this'
+
+Context       Invocation form      this
+------------------------------------------------------
+global        function             global object
+implicit      method               the object
+explicit      apply, call, bind    argument provided
+new           constructor          the new object
+
+
+# Explicit Association
+
+method    parameters          immediate invoke?
+-------------------------------------------------
+call      thisArg, a, b, c    Yes
+apply     thisArg, [a,b,c]    Yes
+bind      thisArg, a, b, c    No
+
